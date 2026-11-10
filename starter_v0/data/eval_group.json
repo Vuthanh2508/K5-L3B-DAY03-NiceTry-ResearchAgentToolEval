@@ -2,6 +2,242 @@
   "dataset_id": "day03_v2_research_group",
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G01_hn_route_timeframe",
+      "phase": "B",
+      "query": "Trên Hacker News tuần này mọi người đang bàn gì về AI agent evaluation?",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Nhắc rõ Hacker News -> hn_search (không phải social_search/lookup); 'tuần này' -> timeframe=week."
+      }
+    },
+    {
+      "id": "G02_hn_sort_latest",
+      "phase": "B",
+      "query": "Dân dev trên HN đang nói gì mới nhất về Rust?",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "'HN' là Hacker News; 'mới nhất' -> sort_by=date, không để mặc định relevance."
+      }
+    },
+    {
+      "id": "G03_weather_tomorrow",
+      "phase": "B",
+      "query": "Ngày mai Hà Nội có mưa không?",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "timeframe": "tomorrow"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Câu hỏi thời tiết -> weather; 'ngày mai' -> timeframe=tomorrow, không để mặc định today."
+      }
+    },
+    {
+      "id": "G04_redact_before_share",
+      "phase": "B",
+      "query": "Che giúp mình email và số điện thoại trong đoạn này trước khi gửi khách: 'Liên hệ anh Nam qua nam.tran@corp.vn hoặc 0912345678.'",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "redact",
+            "args": {}
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Yêu cầu che thông tin cá nhân -> redact; không gọi send, không tự viết lại bằng tay."
+      }
+    },
+    {
+      "id": "G05_weather_general_knowledge",
+      "phase": "B",
+      "query": "Mưa axit hình thành như thế nào?",
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer"
+      },
+      "metadata": {
+        "what_it_tests": "Kiến thức chung có chữ 'mưa' nhưng không hỏi dự báo ở địa điểm nào -> không gọi weather."
+      }
+    },
+    {
+      "id": "M01_weather_fill_location",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Thời tiết cả tuần này thế nào nhỉ?"
+        },
+        {
+          "role": "user",
+          "content": "À mình hỏi ở Đà Nẵng nhé"
+        }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Lượt 1 thiếu địa điểm, lượt 2 bổ sung; phải giữ timeframe=week từ lượt 1."
+      }
+    },
+    {
+      "id": "M02_weather_ask_location",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tuần sau mình đi công tác"
+        },
+        {
+          "role": "user",
+          "content": "Mai trời có mưa không?"
+        }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Không có địa điểm ở lượt nào -> hỏi lại bằng clarify, không đoán location."
+      }
+    },
+    {
+      "id": "M03_hn_carry_constraints",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm thảo luận trên Hacker News về AI agent"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy trong tháng này thôi"
+        },
+        {
+          "role": "user",
+          "content": "Sắp xếp theo mới nhất giúp mình"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "timeframe": "month",
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Gộp ràng buộc qua 3 lượt: timeframe=month (lượt 2) + sort_by=date (lượt 3)."
+      }
+    },
+    {
+      "id": "M04_redact_not_policy",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Mình định dán log lỗi này vào prompt: 'user=an.le@corp.vn token=sk-test-123456'"
+        },
+        {
+          "role": "user",
+          "content": "Làm sạch dữ liệu nhạy cảm trong đó trước đã"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "redact",
+            "args": {}
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Yêu cầu làm sạch đoạn text cụ thể -> redact, không nhầm sang policy (tra quy định)."
+      }
+    },
+    {
+      "id": "M05_hn_not_twitter",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Mình muốn xem phản ứng của cộng đồng về GPT-5"
+        },
+        {
+          "role": "user",
+          "content": "Không phải trên X đâu, trên Hacker News ấy"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {}
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Lượt 2 sửa nguồn: bỏ X/Twitter, chuyển sang hn_search; không gọi social_search."
+      }
+    }
+  ]
 }

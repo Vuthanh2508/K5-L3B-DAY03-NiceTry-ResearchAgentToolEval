@@ -1,0 +1,417 @@
+{
+  "run_id": "v3_B_group_openrouter_20261110T190340921848",
+  "version": "v3",
+  "artifact_version": "v3+pdcc971cbeab7+t9141f44a709f",
+  "prompt_hash": "dcc971cbeab7b8ec0d31f86a8d6826aa494f8303b4c4b0211854861f81e9e5f6",
+  "tools_hash": "9141f44a709f5470a73ea843bdcf934e538e9a217e32bedc6c0f17b6b97b37cc",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\VinAi\\Lab\\Day3\\K5-L3B-DAY03-NiceTry-ResearchAgentToolEval\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\VinAi\\Lab\\Day3\\K5-L3B-DAY03-NiceTry-ResearchAgentToolEval\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day03_v2_research_group",
+  "dataset_role": "group",
+  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
+  "generated_at": "2026-11-10T19:03:40",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 0,
+    "provider_error_cases": 10,
+    "passed_cases": 0,
+    "case_accuracy": 0.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "G01_hn_route_timeframe",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Nhắc rõ Hacker News -> hn_search (không phải social_search/lookup); 'tuần này' -> timeframe=week."
+      },
+      "input": "Trên Hacker News tuần này mọi người đang bàn gì về AI agent evaluation?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G02_hn_sort_latest",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "'HN' là Hacker News; 'mới nhất' -> sort_by=date, không để mặc định relevance."
+      },
+      "input": "Dân dev trên HN đang nói gì mới nhất về Rust?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G03_weather_tomorrow",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Câu hỏi thời tiết -> weather; 'ngày mai' -> timeframe=tomorrow, không để mặc định today."
+      },
+      "input": "Ngày mai Hà Nội có mưa không?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "timeframe": "tomorrow"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G04_redact_before_share",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Yêu cầu che thông tin cá nhân -> redact; không gọi send, không tự viết lại bằng tay."
+      },
+      "input": "Che giúp mình email và số điện thoại trong đoạn này trước khi gửi khách: 'Liên hệ anh Nam qua nam.tran@corp.vn hoặc 0912345678.'",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "redact",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G05_weather_general_knowledge",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Kiến thức chung có chữ 'mưa' nhưng không hỏi dự báo ở địa điểm nào -> không gọi weather."
+      },
+      "input": "Mưa axit hình thành như thế nào?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer"
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M01_weather_fill_location",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Lượt 1 thiếu địa điểm, lượt 2 bổ sung; phải giữ timeframe=week từ lượt 1."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Thời tiết cả tuần này thế nào nhỉ?"
+        },
+        {
+          "role": "user",
+          "content": "À mình hỏi ở Đà Nẵng nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M02_weather_ask_location",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Không có địa điểm ở lượt nào -> hỏi lại bằng clarify, không đoán location."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tuần sau mình đi công tác"
+        },
+        {
+          "role": "user",
+          "content": "Mai trời có mưa không?"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M03_hn_carry_constraints",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Gộp ràng buộc qua 3 lượt: timeframe=month (lượt 2) + sort_by=date (lượt 3)."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm thảo luận trên Hacker News về AI agent"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy trong tháng này thôi"
+        },
+        {
+          "role": "user",
+          "content": "Sắp xếp theo mới nhất giúp mình"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "timeframe": "month",
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M04_redact_not_policy",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Yêu cầu làm sạch đoạn text cụ thể -> redact, không nhầm sang policy (tra quy định)."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình định dán log lỗi này vào prompt: 'user=an.le@corp.vn token=sk-test-123456'"
+        },
+        {
+          "role": "user",
+          "content": "Làm sạch dữ liệu nhạy cảm trong đó trước đã"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "redact",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M05_hn_not_twitter",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Lượt 2 sửa nguồn: bỏ X/Twitter, chuyển sang hn_search; không gọi social_search."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình muốn xem phản ứng của cộng đồng về GPT-5"
+        },
+        {
+          "role": "user",
+          "content": "Không phải trên X đâu, trên Hacker News ấy"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RuntimeError: Missing API key env var: OPENROUTER_API_KEY"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    }
+  ]
+}
