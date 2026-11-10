@@ -443,7 +443,8 @@ def main() -> None:
             write_transcript(st.session_state.transcript_path, st.session_state.transcript)
 
         # Trigger rerun to show confirmation buttons immediately if needed
-        if st.session_state.get("last_clarify", {}).get("response_type") == "yes_no":
+        # last_clarify có thể là None (init_session đặt None), nên không dùng .get(..., {}) trực tiếp.
+        if (st.session_state.get("last_clarify") or {}).get("response_type") == "yes_no":
             st.rerun()
 
 

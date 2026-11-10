@@ -1,0 +1,1045 @@
+{
+  "transcript_id": "v6_openai_20261110T213759077248",
+  "version": "v6",
+  "artifact_version": "v6+pddaf2585d2d5+t2c9e6585049a",
+  "prompt_hash": "ddaf2585d2d58a031b981d868ed8bdbec20f7b10686e914ef7d20dc8e253a9e5",
+  "tools_hash": "2c9e6585049a386686bd32f7b03b2a0eed6b839204111ed7c25974936d62f8d6",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "system_prompt": "C:\\HUST\\VIN\\lab3\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\HUST\\VIN\\lab3\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T21:37:59",
+  "updated_at": "2026-11-10T21:39:42",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T21:38:02",
+      "user": "Tìm kiếm các tin tức AI mới nhất trong tuần qua về OpenAI và DeepSeek.",
+      "status": "answered",
+      "assistant_text": "Here are the latest news articles from the past week regarding OpenAI and DeepSeek:\n\n### OpenAI\n1. **[OpenAI](https://tavily.com/knowledge/company/p4PyTakV77G9)**  \n   Source: tavily.com  \n   Summary: OpenAI is a company focused on research and development to achieve artificial general intelligence, solving human-level problems.\n\n2. **[Setting a new standard for responsible AI infrastructure | OpenAI](https://openai.com/index/setting-new-standard-responsible-ai-infrastructure)**  \n   Source: openai.com  \n   Summary: OpenAI discusses the importance of building computing infrastructure in the U.S. to lower AI delivery costs and ensure broad access to AI tools.\n\n3. **[OpenAI kicks off charm offensive to change voters' view of data centers | Reuters](https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05)**  \n   Source: reuters.com  \n   Summary: OpenAI is implementing new strategies to build trust with local communities regarding data centers, following recent electoral outcomes.\n\n4. **[OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC](https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html)**  \n   Source: cnbc.com  \n   Summary: OpenAI's CFO confirmed ongoing investments in AI infrastructure despite voter pushback against data centers.\n\n5. **[OpenAI employees warned about operational security lapses for years, sources say | Reuters](https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03)**  \n   Source: reuters.com  \n   Summary: Concerns have been raised by OpenAI employees regarding operational security, highlighting vulnerabilities in protecting sensitive information.\n\n### DeepSeek\n1. **[DeepSeek](https://tavily.com/knowledge/company/LAfirX2dI9uN)**  \n   Source: tavily.com  \n   Summary: DeepSeek focuses on researching advanced AI models and technologies, providing deep-end AI solutions.\n\n2. **[DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users)**  \n   Source: bloomberg.com  \n   Summary: DeepSeek announced that its open-source agent application, Harness, has reached 1.54 million daily active users shortly after its launch.\n\n3. **[Who Owns DeepSeek, The Chinese AI Company?](https://www.bgr.com/2304275/who-owns-deepseek-ai)**  \n   Source: bgr.com  \n   Summary: DeepSeek gained attention with its R1 model, which utilizes a mixture of experts to generate AI responses efficiently, impacting the AI industry significantly.\n\n4. **[DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace | Seeking Alpha](https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace)**  \n   Source: seekingalpha.com  \n   Summary: DeepSeek's agent application, Harness, has surpassed 1.5 million daily users, with plans for a plugin marketplace.\n\nIf you need more details or specific articles, feel free to ask!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "OpenAI",
+                "topic": "news",
+                "timeframe": "week"
+              }
+            },
+            {
+              "name": "lookup",
+              "args": {
+                "query": "DeepSeek",
+                "topic": "news",
+                "timeframe": "week"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "OpenAI",
+                "topic": "news",
+                "timeframe": "week"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "OpenAI",
+                "topic": "news",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "OpenAI",
+                    "url": "https://tavily.com/knowledge/company/p4PyTakV77G9",
+                    "source": "tavily.com",
+                    "summary": "# OpenAI\nID: p4PyTakV77G9\nWebsite: www.openai.com\nHeadquarters: San Francisco, CA, United States\nLinkedIn: www.linkedin.com/company/openai · 11,529,792 followers\nIndustry: Research Services\nIndustry codes: SIC 87, 873, NAICS 54, 541\nCompany type: Partnership\nSocial profiles: www.facebook.com/openai, www.twitter.com/openai, www.crunchbase.com/organization/openai, www.instagram.com/openai.gpt, www.instagram.com/openai, www.youtube.com/@openai, www.youtube.com/openai, github.com/openai [...] Description: OpenAI is a company that believes in research and development to lead to artificial general intelligence, a system that can solve human-level problems. [...] ## Products and services\nKeywords: research & development, emerging ai software, openai, artificial intelligence machine learning, artificial general intelligence, development, research, human-level problems, technology, application-software, artificial-intelligence, platform",
+                    "score": 0.90593183
+                  },
+                  {
+                    "title": "Setting a new standard for responsible AI infrastructure | OpenAI",
+                    "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+                    "source": "openai.com",
+                    "summary": "The promise of AI is that it gives people more power to shape their own futures. It can help someone learn a new skill, build a business, or solve a problem that was previously out of reach. Building more computing infrastructure capacity in the United States can help lower the cost of delivering AI, put these tools in more people’s hands, and ensure America stays at the forefront of the technology. [...] protect residents, and ensure that the benefits of AI infrastructure are broadly shared. [...] Create opportunities for local workers and businesses.We’ll publish the jobs we expect to create, work with unions and training providers to help residents prepare for them, and report annually on hiring and apprenticeships. We’ll also make sustained investments in priorities residents help select.",
+                    "score": 0.72231215
+                  },
+                  {
+                    "title": "OpenAI kicks off charm offensive to change voters' view of data centers | Reuters",
+                    "url": "https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05",
+                    "source": "reuters.com",
+                    "summary": "SAN FRANCISCO, Nov 5 (Reuters) - Stunning ​victories by Democrats in US midterm elections this week have been interpreted by many as Americans repudiating tech ‌industry plans to build data centers across the country. OpenAI has now embarked on new strategies to change their minds.\n\nThe AI lab on Thursday laid out policies — in the works since August — intended to help the company build more trust with local communities and convince them that data centers will ​benefit them. [...] OpenAI officials, along with many of their peers in tech, ​have spent the last ⁠two years trying to build ties with the administration of US President Donald Trump in hopes of shaping federal policy around AI.\n\nOpenAI CEO Sam Altman donated $1 million to Trump's inaugural committee and later attended Trump's second inauguration. Last year, Brockman donated $25 million in his personal capacity to ⁠a Trump ​super PAC.",
+                    "score": 0.66569364
+                  },
+                  {
+                    "title": "OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC",
+                    "url": "https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html",
+                    "source": "cnbc.com",
+                    "summary": "OpenAI CFO Sarah Friar on Friday said the company will continue to invest in artificial intelligence infrastructure, even after voters strongly rebuffed data centers during Tuesday’s midterm elections. [...] WATCH LIVE\n\nShare Share Article via Facebook Share Article via Twitter Share Article via LinkedIn Share Article via Email\n\nImage 7: Sarah Friar, CFO of OpenAI, speaking on CNBC's Squawk Box at the World Economic Forum in Davos, Switzerland on Jan. 21st, 2026.\n\nSarah Friar, chief financial officer of OpenAI, speaking on CNBC’s “Squawk Box” at the World Economic Forum in Davos, Switzerland, Jan. 21, 2026.\n\nOscar Molina | CNBC",
+                    "score": 0.6612456
+                  },
+                  {
+                    "title": "OpenAI employees warned about operational security lapses for years, sources say | Reuters",
+                    "url": "https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03",
+                    "source": "reuters.com",
+                    "summary": "OpenAI and Anthropic have tried to ​maintain a more open research culture to both ⁠attract employees and foster creativity that can lead to breakthroughs. The AI field is rooted in academia, where machine-learning scientists have openly discussed their research.\n\nSome OpenAI employees are increasingly worried about this approach as AI grows more capable, according to the five people. [...] When asked about employees' concerns and their view that management did not act on these issues, OpenAI spokesperson Elana Widmann ​said that OpenAI is one of the most targeted organizations in the world. As a result, the company invests heavily in its security program to protect against attacks from insiders, cybercriminals and nation-states, she said. [...] The Reuters Daily Briefing newsletter provides all the news you need to start your day. Sign up here.\n\nThese workers argued that OpenAI's controls were so lax ‌that outsiders, including foreign governments, could obtain sensitive information about the AI lab's technology with relative ease, the people said. For example, anybody at OpenAI who could access its code could see the technical details underlying many company projects.",
+                    "score": 0.6213807
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "DeepSeek",
+                "topic": "news",
+                "timeframe": "week"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "DeepSeek",
+                "topic": "news",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "DeepSeek",
+                    "url": "https://tavily.com/knowledge/company/LAfirX2dI9uN",
+                    "source": "tavily.com",
+                    "summary": "# DeepSeek AI\nID: LAfirX2dI9uN\nWebsite: www.deepseek.com\nLegal name: Hangzhou DeepSeek Artificial Intelligence Co., Ltd.\nHeadquarters: Hangzhou, China\nLinkedIn: www.linkedin.com/company/deepseek-ai · 196,847 followers\nIndustry: Technology, Information and Internet\nCompany type: Privately Held\nFounded: 2023\nSocial profiles: www.twitter.com/deepseek_ai, www.crunchbase.com/organization/deepseek, www.instagram.com/deepseekai_official, www.youtube.com/@deepseek-ai, github.com/deepseek-ai [...] Email: service@deepseek.com\nPhone: 20250178\nDescription: DeepSeek is a company that focuses on researching world-leading deep-end models and technologies. They provide deep-end AI solutions and deep-seek AI interactions to connect with deep-seek AI. [...] ## Products and services\nKeywords: technology/artificial intelligence, deep-end models, api, deep-seek ai, deep-end ai, deepseek, technology, artificial-intelligence, enterprise-software, it-consulting, platform, artificial intelligence (ai)",
+                    "score": 0.9106172
+                  },
+                  {
+                    "title": "DeepSeek",
+                    "url": "https://tavily.com/knowledge/company/Wx7nH1Ciri18",
+                    "source": "tavily.com",
+                    "summary": "# DeepSeek\nID: Wx7nH1Ciri18\nWebsite: www.deepseek.com\nLegal name: Markets Able\nHeadquarters: New York, New York, United States\nLinkedIn: www.linkedin.com/company/deep-seek-ai-model · 20,653 followers\nIndustry: Technology, Information and Internet\nIndustry codes: SIC 62, 623, NAICS 52, 523\nCompany type: Privately Held\nFounded: 2016\nSocial profiles: www.crunchbase.com/organization/markets-able\nEmail: contact@marketsable.com [...] Description: MarketsAble is a research company that specializes in delivering cutting-edge reports and in-depth analysis on various industries, including blockchain, cryptocurrency, DeFi, Web3, and Bitcoin. They also cover emerging technologies like AI, IoT, Quantum Computing, and beyond. Their mission is to provide businesses, investors, and innovators with insights to stay ahead in fast-evolving markets. [...] ## Products and services\nKeywords: market research, ai, artificial intelligence, deepseek, deepseek ai, ai model, emerging technologies, cryptocurrency, research, data-driven forecasting, blockchain, analytics",
+                    "score": 0.8131201
+                  },
+                  {
+                    "title": "DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg",
+                    "url": "https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users",
+                    "source": "bloomberg.com",
+                    "summary": "# DeepSeek’s AI Agent Platform Hits 1.54 Million Daily Users\n\nDeepSeek, the Chinese AI disruptor, released striking adoption numbers for its AI agent infrastructure as it continues to challenge Anthropic PBC and OpenAI with an entire swath of applications built around open-source AI technologies. [...] On Sunday, the Hangzhou-headquartered startup disclosed on X that DeepSeek Harness, its open-source agent application, had reached 1.54 million daily active users by November 4, less than three months after its August 13 debut. Daily users were at about 271,000 at the end of September, right after it released a desktop version of the app, based on the number of users connecting to its own servers.",
+                    "score": 0.750937
+                  },
+                  {
+                    "title": "Who Owns DeepSeek, The Chinese AI Company?",
+                    "url": "https://www.bgr.com/2304275/who-owns-deepseek-ai",
+                    "source": "bgr.com",
+                    "summary": "Chinese AI lab DeepSeek made headlines and caused disruption in the AI industry when it launched the R1 model in 2025. It uses a concept called mixture of experts (MoE) to efficiently generate AI responses at a much cheaper cost than its competitors. This resulted in the DeepSeek app becoming very popular in a short span of time. The R1 model launch triggered a global technology stock selloff in 2025 and made a clear statement to Western AI companies: China was by no means behind in the AI [...] DeepSeek's efficiency breakthroughs in AI compute could benefit the entire AI industry, which has an opportunity to learn from them to relieve the heavy resource needs of data centers that power most AI models. DeepSeek achieved its industry-leading efficiency through a combination of its MoE architecture, hardware optimization, model distillation, and reinforcement learning, which together lowered model training costs. [...] The company was founded by an electronic engineer from Zhejiang University named Liang Wenfeng, who funded the launch of DeepSeek with profits from his hedge fund, High-Flyer, in 2023. Liang co-founded High-Flyer, which uses math and AI to make investment decisions. In DeepSeek's second funding round, the company secured about $15 billion from large backers such as Tencent Holdings and CATL. 27% of this funding is state-owned, with the China National AI Industry Investment Fund contributing",
+                    "score": 0.7380092
+                  },
+                  {
+                    "title": "DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace (DEEPSEEK:Private) | Seeking Alpha",
+                    "url": "https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace",
+                    "source": "seekingalpha.com",
+                    "summary": "## Investing Groups\n\n## Portfolios\n\n## Find & Compare\n\n# DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace\n\nDeepSeek Shakes Up The Global AI Market\n\nLeon Neal/Getty Images News\n\nDeepSeek (DEEPSEEK) said its open-source AI agent application, Harness, reached 1.54 million daily active users by Nov. 4, less than three months after launching. The company’s figures, disclosed Sunday on X, compare with roughly 271,000 users at September’s end\n\n### Recommended For You",
+                    "score": 0.6944897
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are the latest news articles from the past week regarding OpenAI and DeepSeek:\n\n### OpenAI\n1. **[OpenAI](https://tavily.com/knowledge/company/p4PyTakV77G9)**  \n   Source: tavily.com  \n   Summary: OpenAI is a company focused on research and development to achieve artificial general intelligence, solving human-level problems.\n\n2. **[Setting a new standard for responsible AI infrastructure | OpenAI](https://openai.com/index/setting-new-standard-responsible-ai-infrastructure)**  \n   Source: openai.com  \n   Summary: OpenAI discusses the importance of building computing infrastructure in the U.S. to lower AI delivery costs and ensure broad access to AI tools.\n\n3. **[OpenAI kicks off charm offensive to change voters' view of data centers | Reuters](https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05)**  \n   Source: reuters.com  \n   Summary: OpenAI is implementing new strategies to build trust with local communities regarding data centers, following recent electoral outcomes.\n\n4. **[OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC](https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html)**  \n   Source: cnbc.com  \n   Summary: OpenAI's CFO confirmed ongoing investments in AI infrastructure despite voter pushback against data centers.\n\n5. **[OpenAI employees warned about operational security lapses for years, sources say | Reuters](https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03)**  \n   Source: reuters.com  \n   Summary: Concerns have been raised by OpenAI employees regarding operational security, highlighting vulnerabilities in protecting sensitive information.\n\n### DeepSeek\n1. **[DeepSeek](https://tavily.com/knowledge/company/LAfirX2dI9uN)**  \n   Source: tavily.com  \n   Summary: DeepSeek focuses on researching advanced AI models and technologies, providing deep-end AI solutions.\n\n2. **[DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users)**  \n   Source: bloomberg.com  \n   Summary: DeepSeek announced that its open-source agent application, Harness, has reached 1.54 million daily active users shortly after its launch.\n\n3. **[Who Owns DeepSeek, The Chinese AI Company?](https://www.bgr.com/2304275/who-owns-deepseek-ai)**  \n   Source: bgr.com  \n   Summary: DeepSeek gained attention with its R1 model, which utilizes a mixture of experts to generate AI responses efficiently, impacting the AI industry significantly.\n\n4. **[DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace | Seeking Alpha](https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace)**  \n   Source: seekingalpha.com  \n   Summary: DeepSeek's agent application, Harness, has surpassed 1.5 million daily users, with plans for a plugin marketplace.\n\nIf you need more details or specific articles, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "OpenAI",
+                "url": "https://tavily.com/knowledge/company/p4PyTakV77G9",
+                "source": "tavily.com",
+                "summary": "# OpenAI\nID: p4PyTakV77G9\nWebsite: www.openai.com\nHeadquarters: San Francisco, CA, United States\nLinkedIn: www.linkedin.com/company/openai · 11,529,792 followers\nIndustry: Research Services\nIndustry codes: SIC 87, 873, NAICS 54, 541\nCompany type: Partnership\nSocial profiles: www.facebook.com/openai, www.twitter.com/openai, www.crunchbase.com/organization/openai, www.instagram.com/openai.gpt, www.instagram.com/openai, www.youtube.com/@openai, www.youtube.com/openai, github.com/openai [...] Description: OpenAI is a company that believes in research and development to lead to artificial general intelligence, a system that can solve human-level problems. [...] ## Products and services\nKeywords: research & development, emerging ai software, openai, artificial intelligence machine learning, artificial general intelligence, development, research, human-level problems, technology, application-software, artificial-intelligence, platform",
+                "score": 0.90593183
+              },
+              {
+                "title": "Setting a new standard for responsible AI infrastructure | OpenAI",
+                "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+                "source": "openai.com",
+                "summary": "The promise of AI is that it gives people more power to shape their own futures. It can help someone learn a new skill, build a business, or solve a problem that was previously out of reach. Building more computing infrastructure capacity in the United States can help lower the cost of delivering AI, put these tools in more people’s hands, and ensure America stays at the forefront of the technology. [...] protect residents, and ensure that the benefits of AI infrastructure are broadly shared. [...] Create opportunities for local workers and businesses.We’ll publish the jobs we expect to create, work with unions and training providers to help residents prepare for them, and report annually on hiring and apprenticeships. We’ll also make sustained investments in priorities residents help select.",
+                "score": 0.72231215
+              },
+              {
+                "title": "OpenAI kicks off charm offensive to change voters' view of data centers | Reuters",
+                "url": "https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05",
+                "source": "reuters.com",
+                "summary": "SAN FRANCISCO, Nov 5 (Reuters) - Stunning ​victories by Democrats in US midterm elections this week have been interpreted by many as Americans repudiating tech ‌industry plans to build data centers across the country. OpenAI has now embarked on new strategies to change their minds.\n\nThe AI lab on Thursday laid out policies — in the works since August — intended to help the company build more trust with local communities and convince them that data centers will ​benefit them. [...] OpenAI officials, along with many of their peers in tech, ​have spent the last ⁠two years trying to build ties with the administration of US President Donald Trump in hopes of shaping federal policy around AI.\n\nOpenAI CEO Sam Altman donated $1 million to Trump's inaugural committee and later attended Trump's second inauguration. Last year, Brockman donated $25 million in his personal capacity to ⁠a Trump ​super PAC.",
+                "score": 0.66569364
+              },
+              {
+                "title": "OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC",
+                "url": "https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html",
+                "source": "cnbc.com",
+                "summary": "OpenAI CFO Sarah Friar on Friday said the company will continue to invest in artificial intelligence infrastructure, even after voters strongly rebuffed data centers during Tuesday’s midterm elections. [...] WATCH LIVE\n\nShare Share Article via Facebook Share Article via Twitter Share Article via LinkedIn Share Article via Email\n\nImage 7: Sarah Friar, CFO of OpenAI, speaking on CNBC's Squawk Box at the World Economic Forum in Davos, Switzerland on Jan. 21st, 2026.\n\nSarah Friar, chief financial officer of OpenAI, speaking on CNBC’s “Squawk Box” at the World Economic Forum in Davos, Switzerland, Jan. 21, 2026.\n\nOscar Molina | CNBC",
+                "score": 0.6612456
+              },
+              {
+                "title": "OpenAI employees warned about operational security lapses for years, sources say | Reuters",
+                "url": "https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03",
+                "source": "reuters.com",
+                "summary": "OpenAI and Anthropic have tried to ​maintain a more open research culture to both ⁠attract employees and foster creativity that can lead to breakthroughs. The AI field is rooted in academia, where machine-learning scientists have openly discussed their research.\n\nSome OpenAI employees are increasingly worried about this approach as AI grows more capable, according to the five people. [...] When asked about employees' concerns and their view that management did not act on these issues, OpenAI spokesperson Elana Widmann ​said that OpenAI is one of the most targeted organizations in the world. As a result, the company invests heavily in its security program to protect against attacks from insiders, cybercriminals and nation-states, she said. [...] The Reuters Daily Briefing newsletter provides all the news you need to start your day. Sign up here.\n\nThese workers argued that OpenAI's controls were so lax ‌that outsiders, including foreign governments, could obtain sensitive information about the AI lab's technology with relative ease, the people said. For example, anybody at OpenAI who could access its code could see the technical details underlying many company projects.",
+                "score": 0.6213807
+              }
+            ]
+          }
+        },
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "DeepSeek",
+            "topic": "news",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "DeepSeek",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "DeepSeek",
+                "url": "https://tavily.com/knowledge/company/LAfirX2dI9uN",
+                "source": "tavily.com",
+                "summary": "# DeepSeek AI\nID: LAfirX2dI9uN\nWebsite: www.deepseek.com\nLegal name: Hangzhou DeepSeek Artificial Intelligence Co., Ltd.\nHeadquarters: Hangzhou, China\nLinkedIn: www.linkedin.com/company/deepseek-ai · 196,847 followers\nIndustry: Technology, Information and Internet\nCompany type: Privately Held\nFounded: 2023\nSocial profiles: www.twitter.com/deepseek_ai, www.crunchbase.com/organization/deepseek, www.instagram.com/deepseekai_official, www.youtube.com/@deepseek-ai, github.com/deepseek-ai [...] Email: service@deepseek.com\nPhone: 20250178\nDescription: DeepSeek is a company that focuses on researching world-leading deep-end models and technologies. They provide deep-end AI solutions and deep-seek AI interactions to connect with deep-seek AI. [...] ## Products and services\nKeywords: technology/artificial intelligence, deep-end models, api, deep-seek ai, deep-end ai, deepseek, technology, artificial-intelligence, enterprise-software, it-consulting, platform, artificial intelligence (ai)",
+                "score": 0.9106172
+              },
+              {
+                "title": "DeepSeek",
+                "url": "https://tavily.com/knowledge/company/Wx7nH1Ciri18",
+                "source": "tavily.com",
+                "summary": "# DeepSeek\nID: Wx7nH1Ciri18\nWebsite: www.deepseek.com\nLegal name: Markets Able\nHeadquarters: New York, New York, United States\nLinkedIn: www.linkedin.com/company/deep-seek-ai-model · 20,653 followers\nIndustry: Technology, Information and Internet\nIndustry codes: SIC 62, 623, NAICS 52, 523\nCompany type: Privately Held\nFounded: 2016\nSocial profiles: www.crunchbase.com/organization/markets-able\nEmail: contact@marketsable.com [...] Description: MarketsAble is a research company that specializes in delivering cutting-edge reports and in-depth analysis on various industries, including blockchain, cryptocurrency, DeFi, Web3, and Bitcoin. They also cover emerging technologies like AI, IoT, Quantum Computing, and beyond. Their mission is to provide businesses, investors, and innovators with insights to stay ahead in fast-evolving markets. [...] ## Products and services\nKeywords: market research, ai, artificial intelligence, deepseek, deepseek ai, ai model, emerging technologies, cryptocurrency, research, data-driven forecasting, blockchain, analytics",
+                "score": 0.8131201
+              },
+              {
+                "title": "DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg",
+                "url": "https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users",
+                "source": "bloomberg.com",
+                "summary": "# DeepSeek’s AI Agent Platform Hits 1.54 Million Daily Users\n\nDeepSeek, the Chinese AI disruptor, released striking adoption numbers for its AI agent infrastructure as it continues to challenge Anthropic PBC and OpenAI with an entire swath of applications built around open-source AI technologies. [...] On Sunday, the Hangzhou-headquartered startup disclosed on X that DeepSeek Harness, its open-source agent application, had reached 1.54 million daily active users by November 4, less than three months after its August 13 debut. Daily users were at about 271,000 at the end of September, right after it released a desktop version of the app, based on the number of users connecting to its own servers.",
+                "score": 0.750937
+              },
+              {
+                "title": "Who Owns DeepSeek, The Chinese AI Company?",
+                "url": "https://www.bgr.com/2304275/who-owns-deepseek-ai",
+                "source": "bgr.com",
+                "summary": "Chinese AI lab DeepSeek made headlines and caused disruption in the AI industry when it launched the R1 model in 2025. It uses a concept called mixture of experts (MoE) to efficiently generate AI responses at a much cheaper cost than its competitors. This resulted in the DeepSeek app becoming very popular in a short span of time. The R1 model launch triggered a global technology stock selloff in 2025 and made a clear statement to Western AI companies: China was by no means behind in the AI [...] DeepSeek's efficiency breakthroughs in AI compute could benefit the entire AI industry, which has an opportunity to learn from them to relieve the heavy resource needs of data centers that power most AI models. DeepSeek achieved its industry-leading efficiency through a combination of its MoE architecture, hardware optimization, model distillation, and reinforcement learning, which together lowered model training costs. [...] The company was founded by an electronic engineer from Zhejiang University named Liang Wenfeng, who funded the launch of DeepSeek with profits from his hedge fund, High-Flyer, in 2023. Liang co-founded High-Flyer, which uses math and AI to make investment decisions. In DeepSeek's second funding round, the company secured about $15 billion from large backers such as Tencent Holdings and CATL. 27% of this funding is state-owned, with the China National AI Industry Investment Fund contributing",
+                "score": 0.7380092
+              },
+              {
+                "title": "DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace (DEEPSEEK:Private) | Seeking Alpha",
+                "url": "https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace",
+                "source": "seekingalpha.com",
+                "summary": "## Investing Groups\n\n## Portfolios\n\n## Find & Compare\n\n# DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace\n\nDeepSeek Shakes Up The Global AI Market\n\nLeon Neal/Getty Images News\n\nDeepSeek (DEEPSEEK) said its open-source AI agent application, Harness, reached 1.54 million daily active users by Nov. 4, less than three months after launching. The company’s figures, disclosed Sunday on X, compare with roughly 271,000 users at September’s end\n\n### Recommended For You",
+                "score": 0.6944897
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:38:16"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-11-10T21:38:19",
+      "user": "Hãy lấy các bài đăng gần đây của tài khoản này.",
+      "status": "answered",
+      "assistant_text": "Vui lòng cung cấp tên tài khoản mà bạn muốn lấy các bài đăng gần đây.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Vui lòng cung cấp tên tài khoản mà bạn muốn lấy các bài đăng gần đây.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-11-10T21:38:20"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-11-10T21:38:24",
+      "user": "Tài khoản @sama nhé.",
+      "status": "answered",
+      "assistant_text": "Here are the recent posts from the account @sama:\n\n1. **[RT @fouadmatin: Today’s GPT-6 Cyber release is a meaningful step for defenders: stronger vulnerability research and better alignment. We’ve…](https://x.com/sama/status/2118471941002842341)**  \n   Date: Thu Nov 05 22:34:04 +0000 2026  \n   Retweets: 53 | Views: 47,545\n\n2. **[RT @thsottiaux: Day 25/ We are doubling all usage limits for all Pro 100/200/500 tiers and Business Premium, effective today. We heard yo…](https://x.com/sama/status/2117797818756952416)**  \n   Date: Wed Nov 04 01:55:21 +0000 2026  \n   Retweets: 2,701 | Views: 42,045\n\n3. **[People should always be in control of the future. OpenAI is against the notion that it would be acceptable for people to be relegated to a role of doing things that “AI systems think makes sense to reward in humans”. People should not cede control of the future to superintelligence, and that requirement should ultimately constrain AI progress.](https://x.com/sama/status/2117794005165748448)**  \n   Date: Wed Nov 04 01:40:12 +0000 2026  \n   Favorites: 20,686 | Retweets: 1,021 | Views: 10,656,768\n\n4. **[RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic analysis, complexity…](https://x.com/sama/status/2114864981934329996)**  \n   Date: Mon Oct 26 23:41:18 +0000 2026  \n   Retweets: 1,117 | Views: 48,208\n\n5. **[6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.](https://x.com/sama/status/2114818620782248024)**  \n   Date: Mon Oct 26 20:37:05 +0000 2026  \n   Favorites: 10,121 | Retweets: 494 | Views: 1,659,515\n\nIf you need more information or further assistance, feel free to ask!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "timeline",
+              "args": {
+                "screenname": "sama"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "timeline",
+              "args": {
+                "screenname": "sama"
+              },
+              "result": {
+                "tool": "get_user_tweets",
+                "screenname": "sama",
+                "items": [
+                  {
+                    "title": "RT @fouadmatin: Today’s GPT-6 Cyber release is a meaningful step for defenders: stronger vulnerability research and bett",
+                    "summary": "RT @fouadmatin: Today’s GPT-6 Cyber release is a meaningful step for defenders: stronger vulnerability research and better alignment. We’ve…",
+                    "url": "https://x.com/sama/status/2118471941002842341",
+                    "source": "@sama",
+                    "date": "Thu Nov 05 22:34:04 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 53,
+                      "views": "47545"
+                    }
+                  },
+                  {
+                    "title": "RT @thsottiaux: Day 25/",
+                    "summary": "RT @thsottiaux: Day 25/\n\nWe are doubling all usage limits for all Pro 100/200/500 tiers and Business Premium, effective today.\n\nWe heard yo…",
+                    "url": "https://x.com/sama/status/2117797818756952416",
+                    "source": "@sama",
+                    "date": "Wed Nov 04 01:55:21 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 2701,
+                      "views": "42045"
+                    }
+                  },
+                  {
+                    "title": "People should always be in control of the future.",
+                    "summary": "People should always be in control of the future.\n\nOpenAI is against the notion that it would be acceptable for people to be relegated to a role of doing things that “AI systems think makes sense to reward in humans”.\n\nPeople should not cede control of the future to superintelligence, and that requirement should ultimately constrain AI progress.",
+                    "url": "https://x.com/sama/status/2117794005165748448",
+                    "source": "@sama",
+                    "date": "Wed Nov 04 01:40:12 +0000 2026",
+                    "metrics": {
+                      "favorites": 20686,
+                      "retweets": 1021,
+                      "views": "10656768"
+                    }
+                  },
+                  {
+                    "title": "RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic an",
+                    "summary": "RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic analysis, complexity…",
+                    "url": "https://x.com/sama/status/2114864981934329996",
+                    "source": "@sama",
+                    "date": "Mon Oct 26 23:41:18 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 1117,
+                      "views": "48208"
+                    }
+                  },
+                  {
+                    "title": "6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.",
+                    "summary": "6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.",
+                    "url": "https://x.com/sama/status/2114818620782248024",
+                    "source": "@sama",
+                    "date": "Mon Oct 26 20:37:05 +0000 2026",
+                    "metrics": {
+                      "favorites": 10121,
+                      "retweets": 494,
+                      "views": "1659515"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are the recent posts from the account @sama:\n\n1. **[RT @fouadmatin: Today’s GPT-6 Cyber release is a meaningful step for defenders: stronger vulnerability research and better alignment. We’ve…](https://x.com/sama/status/2118471941002842341)**  \n   Date: Thu Nov 05 22:34:04 +0000 2026  \n   Retweets: 53 | Views: 47,545\n\n2. **[RT @thsottiaux: Day 25/ We are doubling all usage limits for all Pro 100/200/500 tiers and Business Premium, effective today. We heard yo…](https://x.com/sama/status/2117797818756952416)**  \n   Date: Wed Nov 04 01:55:21 +0000 2026  \n   Retweets: 2,701 | Views: 42,045\n\n3. **[People should always be in control of the future. OpenAI is against the notion that it would be acceptable for people to be relegated to a role of doing things that “AI systems think makes sense to reward in humans”. People should not cede control of the future to superintelligence, and that requirement should ultimately constrain AI progress.](https://x.com/sama/status/2117794005165748448)**  \n   Date: Wed Nov 04 01:40:12 +0000 2026  \n   Favorites: 20,686 | Retweets: 1,021 | Views: 10,656,768\n\n4. **[RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic analysis, complexity…](https://x.com/sama/status/2114864981934329996)**  \n   Date: Mon Oct 26 23:41:18 +0000 2026  \n   Retweets: 1,117 | Views: 48,208\n\n5. **[6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.](https://x.com/sama/status/2114818620782248024)**  \n   Date: Mon Oct 26 20:37:05 +0000 2026  \n   Favorites: 10,121 | Retweets: 494 | Views: 1,659,515\n\nIf you need more information or further assistance, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "sama"
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "screenname": "sama",
+            "items": [
+              {
+                "title": "RT @fouadmatin: Today’s GPT-6 Cyber release is a meaningful step for defenders: stronger vulnerability research and bett",
+                "summary": "RT @fouadmatin: Today’s GPT-6 Cyber release is a meaningful step for defenders: stronger vulnerability research and better alignment. We’ve…",
+                "url": "https://x.com/sama/status/2118471941002842341",
+                "source": "@sama",
+                "date": "Thu Nov 05 22:34:04 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 53,
+                  "views": "47545"
+                }
+              },
+              {
+                "title": "RT @thsottiaux: Day 25/",
+                "summary": "RT @thsottiaux: Day 25/\n\nWe are doubling all usage limits for all Pro 100/200/500 tiers and Business Premium, effective today.\n\nWe heard yo…",
+                "url": "https://x.com/sama/status/2117797818756952416",
+                "source": "@sama",
+                "date": "Wed Nov 04 01:55:21 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 2701,
+                  "views": "42045"
+                }
+              },
+              {
+                "title": "People should always be in control of the future.",
+                "summary": "People should always be in control of the future.\n\nOpenAI is against the notion that it would be acceptable for people to be relegated to a role of doing things that “AI systems think makes sense to reward in humans”.\n\nPeople should not cede control of the future to superintelligence, and that requirement should ultimately constrain AI progress.",
+                "url": "https://x.com/sama/status/2117794005165748448",
+                "source": "@sama",
+                "date": "Wed Nov 04 01:40:12 +0000 2026",
+                "metrics": {
+                  "favorites": 20686,
+                  "retweets": 1021,
+                  "views": "10656768"
+                }
+              },
+              {
+                "title": "RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic an",
+                "summary": "RT @danintheory: We are announcing three new discoveries in mathematics, computer science, and physics about harmonic analysis, complexity…",
+                "url": "https://x.com/sama/status/2114864981934329996",
+                "source": "@sama",
+                "date": "Mon Oct 26 23:41:18 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 1117,
+                  "views": "48208"
+                }
+              },
+              {
+                "title": "6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.",
+                "summary": "6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.",
+                "url": "https://x.com/sama/status/2114818620782248024",
+                "source": "@sama",
+                "date": "Mon Oct 26 20:37:05 +0000 2026",
+                "metrics": {
+                  "favorites": 10121,
+                  "retweets": 494,
+                  "views": "1659515"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:38:43"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-11-10T21:38:45",
+      "user": "Gửi bản tin tóm tắt vừa rồi lên Telegram.",
+      "status": "answered",
+      "assistant_text": "Bạn có muốn gửi bản tin tóm tắt vừa rồi lên Telegram không? (Vui lòng xác nhận bằng cách trả lời \"Có\" hoặc \"Không\".)",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Bạn có muốn gửi bản tin tóm tắt vừa rồi lên Telegram không? (Vui lòng xác nhận bằng cách trả lời \"Có\" hoặc \"Không\".)",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-11-10T21:38:47"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-11-10T21:38:49",
+      "user": "Đồng ý, hãy gửi ngay bản tin lên Telegram.",
+      "status": "answered",
+      "assistant_text": "Rất tiếc, nhưng tôi không thể gửi bản tin lên Telegram do thiếu thông tin cần thiết (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID). Nếu bạn có thông tin này, vui lòng cung cấp để tôi có thể gửi bản tin cho bạn.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "send",
+              "args": {
+                "text": "### OpenAI\n1. **[OpenAI](https://tavily.com/knowledge/company/p4PyTakV77G9)**  \n   Source: tavily.com  \n   Summary: OpenAI is a company focused on research and development to achieve artificial general intelligence, solving human-level problems.\n\n2. **[Setting a new standard for responsible AI infrastructure | OpenAI](https://openai.com/index/setting-new-standard-responsible-ai-infrastructure)**  \n   Source: openai.com  \n   Summary: OpenAI discusses the importance of building computing infrastructure in the U.S. to lower AI delivery costs and ensure broad access to AI tools.\n\n3. **[OpenAI kicks off charm offensive to change voters' view of data centers | Reuters](https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05)**  \n   Source: reuters.com  \n   Summary: OpenAI is implementing new strategies to build trust with local communities regarding data centers, following recent electoral outcomes.\n\n4. **[OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC](https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html)**  \n   Source: cnbc.com  \n   Summary: OpenAI's CFO confirmed ongoing investments in AI infrastructure despite voter pushback against data centers.\n\n5. **[OpenAI employees warned about operational security lapses for years, sources say | Reuters](https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03)**  \n   Source: reuters.com  \n   Summary: Concerns have been raised by OpenAI employees regarding operational security, highlighting vulnerabilities in protecting sensitive information.\n\n### DeepSeek\n1. **[DeepSeek](https://tavily.com/knowledge/company/LAfirX2dI9uN)**  \n   Source: tavily.com  \n   Summary: DeepSeek focuses on researching advanced AI models and technologies, providing deep-end AI solutions.\n\n2. **[DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users)**  \n   Source: bloomberg.com  \n   Summary: DeepSeek announced that its open-source agent application, Harness, has reached 1.54 million daily active users shortly after its launch.\n\n3. **[Who Owns DeepSeek, The Chinese AI Company?](https://www.bgr.com/2304275/who-owns-deepseek-ai)**  \n   Source: bgr.com  \n   Summary: DeepSeek gained attention with its R1 model, which utilizes a mixture of experts to generate AI responses efficiently, impacting the AI industry significantly.\n\n4. **[DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace | Seeking Alpha](https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace)**  \n   Source: seekingalpha.com  \n   Summary: DeepSeek's agent application, Harness, has surpassed 1.5 million daily users, with plans for a plugin marketplace.\n\nIf you need more details or specific articles, feel free to ask!",
+                "confirmed": true
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "send",
+              "args": {
+                "text": "### OpenAI\n1. **[OpenAI](https://tavily.com/knowledge/company/p4PyTakV77G9)**  \n   Source: tavily.com  \n   Summary: OpenAI is a company focused on research and development to achieve artificial general intelligence, solving human-level problems.\n\n2. **[Setting a new standard for responsible AI infrastructure | OpenAI](https://openai.com/index/setting-new-standard-responsible-ai-infrastructure)**  \n   Source: openai.com  \n   Summary: OpenAI discusses the importance of building computing infrastructure in the U.S. to lower AI delivery costs and ensure broad access to AI tools.\n\n3. **[OpenAI kicks off charm offensive to change voters' view of data centers | Reuters](https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05)**  \n   Source: reuters.com  \n   Summary: OpenAI is implementing new strategies to build trust with local communities regarding data centers, following recent electoral outcomes.\n\n4. **[OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC](https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html)**  \n   Source: cnbc.com  \n   Summary: OpenAI's CFO confirmed ongoing investments in AI infrastructure despite voter pushback against data centers.\n\n5. **[OpenAI employees warned about operational security lapses for years, sources say | Reuters](https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03)**  \n   Source: reuters.com  \n   Summary: Concerns have been raised by OpenAI employees regarding operational security, highlighting vulnerabilities in protecting sensitive information.\n\n### DeepSeek\n1. **[DeepSeek](https://tavily.com/knowledge/company/LAfirX2dI9uN)**  \n   Source: tavily.com  \n   Summary: DeepSeek focuses on researching advanced AI models and technologies, providing deep-end AI solutions.\n\n2. **[DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users)**  \n   Source: bloomberg.com  \n   Summary: DeepSeek announced that its open-source agent application, Harness, has reached 1.54 million daily active users shortly after its launch.\n\n3. **[Who Owns DeepSeek, The Chinese AI Company?](https://www.bgr.com/2304275/who-owns-deepseek-ai)**  \n   Source: bgr.com  \n   Summary: DeepSeek gained attention with its R1 model, which utilizes a mixture of experts to generate AI responses efficiently, impacting the AI industry significantly.\n\n4. **[DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace | Seeking Alpha](https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace)**  \n   Source: seekingalpha.com  \n   Summary: DeepSeek's agent application, Harness, has surpassed 1.5 million daily users, with plans for a plugin marketplace.\n\nIf you need more details or specific articles, feel free to ask!",
+                "confirmed": true
+              },
+              "result": {
+                "tool": "send_telegram",
+                "error": "RuntimeError",
+                "message": "Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Rất tiếc, nhưng tôi không thể gửi bản tin lên Telegram do thiếu thông tin cần thiết (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID). Nếu bạn có thông tin này, vui lòng cung cấp để tôi có thể gửi bản tin cho bạn.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "send",
+          "args": {
+            "text": "### OpenAI\n1. **[OpenAI](https://tavily.com/knowledge/company/p4PyTakV77G9)**  \n   Source: tavily.com  \n   Summary: OpenAI is a company focused on research and development to achieve artificial general intelligence, solving human-level problems.\n\n2. **[Setting a new standard for responsible AI infrastructure | OpenAI](https://openai.com/index/setting-new-standard-responsible-ai-infrastructure)**  \n   Source: openai.com  \n   Summary: OpenAI discusses the importance of building computing infrastructure in the U.S. to lower AI delivery costs and ensure broad access to AI tools.\n\n3. **[OpenAI kicks off charm offensive to change voters' view of data centers | Reuters](https://www.reuters.com/business/openai-kicks-off-charm-offensive-change-voters-view-data-centers-2026-11-05)**  \n   Source: reuters.com  \n   Summary: OpenAI is implementing new strategies to build trust with local communities regarding data centers, following recent electoral outcomes.\n\n4. **[OpenAI will keep investing in AI data centers despite election results, CFO tells CNBC](https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html)**  \n   Source: cnbc.com  \n   Summary: OpenAI's CFO confirmed ongoing investments in AI infrastructure despite voter pushback against data centers.\n\n5. **[OpenAI employees warned about operational security lapses for years, sources say | Reuters](https://www.reuters.com/business/openai-employees-warned-about-operational-security-lapses-years-sources-say-2026-11-03)**  \n   Source: reuters.com  \n   Summary: Concerns have been raised by OpenAI employees regarding operational security, highlighting vulnerabilities in protecting sensitive information.\n\n### DeepSeek\n1. **[DeepSeek](https://tavily.com/knowledge/company/LAfirX2dI9uN)**  \n   Source: tavily.com  \n   Summary: DeepSeek focuses on researching advanced AI models and technologies, providing deep-end AI solutions.\n\n2. **[DeepSeek’s AI Agent Platform Reaches 1.54 Million Daily Active Users - Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/deepseek-s-ai-agent-platform-hits-1-54-million-daily-users)**  \n   Source: bloomberg.com  \n   Summary: DeepSeek announced that its open-source agent application, Harness, has reached 1.54 million daily active users shortly after its launch.\n\n3. **[Who Owns DeepSeek, The Chinese AI Company?](https://www.bgr.com/2304275/who-owns-deepseek-ai)**  \n   Source: bgr.com  \n   Summary: DeepSeek gained attention with its R1 model, which utilizes a mixture of experts to generate AI responses efficiently, impacting the AI industry significantly.\n\n4. **[DeepSeek says agent app tops 1.5M daily users, plans plugin marketplace | Seeking Alpha](https://seekingalpha.com/news/4668771-deepseek-says-agent-app-tops-15m-daily-users-plans-plugin-marketplace)**  \n   Source: seekingalpha.com  \n   Summary: DeepSeek's agent application, Harness, has surpassed 1.5 million daily users, with plans for a plugin marketplace.\n\nIf you need more details or specific articles, feel free to ask!",
+            "confirmed": true
+          },
+          "result": {
+            "tool": "send_telegram",
+            "error": "RuntimeError",
+            "message": "Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID env var"
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:39:01"
+    },
+    {
+      "turn_index": 6,
+      "started_at": "2026-11-10T21:39:05",
+      "user": "Thời tiết hôm nay tại Hà Nội thế nào?",
+      "status": "answered",
+      "assistant_text": "Thời tiết hôm nay tại Hà Nội (10 tháng 11 năm 2026) như sau:\n\n- **Nhiệt độ**: 18.2°C (64.7°F)\n- **Thời tiết**: Có mưa rải rác gần đó\n- **Gió**: Từ hướng tây bắc với tốc độ 11.9 km/h (7.4 mph)\n- **Độ ẩm**: 72%\n\nNếu bạn cần thêm thông tin chi tiết, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "weather",
+              "args": {
+                "location": "Hà Nội",
+                "timeframe": "today"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "weather",
+              "args": {
+                "location": "Hà Nội",
+                "timeframe": "today"
+              },
+              "result": {
+                "tool": "weather",
+                "location": "Hà Nội",
+                "timeframe": "today",
+                "summary": "According to the weatherapi.com source, the weather forecast for Hà Nội today, November 10, 2026, is patchy rain nearby with a temperature of 18.2°C (64.7°F). The wind is coming from the northwest at 11.9 kph (7.4 mph) and the humidity is at 72%. The other sources do not provide specific weather details for Hà Nội.",
+                "items": [
+                  {
+                    "title": "United States weather forecast for Tuesday, 10 November 2026",
+                    "url": "https://www.weather25.com/north-america/usa?page=date&date=10-11",
+                    "source": "weather25.com",
+                    "snippet": "| Chance of snow | 0% | 0% | 0% | 0% | 0% | 0% | 0% | 0% |\n| Chance of frost | 0% | 0% | 0% | 0% | 0% | 0% | 0% | 0% |\n| Humidity | 63% | 67% | 64% | 59% | 43% | 41% | 52% | 60% |\n| Wind | 12Km/h | 12Km/h | 12Km/h | 12Km/h | 20Km/h | 18Km/h | 13Km/h | 14Km/h |\n| Wind Gust | 34Km/h | 30Km/h | 30Km/h | 24Km/h | 33Km/h | 40Km/h | 39Km/h | 43Km/h |\n| Wind Degree | 289° 289° | 267° 267° | 261° 261° | 251° 251° | 256° 256° | 256° 256° | 264° 264° | 273° 273° | [...] |  |  |  |  |  |  |  |  |\n ---  ---  ---  --- |\n| 00:00 | 03:00 | 06:00 | 09:00 | 12:00 | 15:00 | 18:00 | 21:00 |\n| Temperature | 8°C | 7°C | 7°C | 9°C | 14°C | 16°C | 14°C | 12°C |\n| Weather | Clear Clear | Cloudy Cloudy | Overcast Overcast | Cloudy Cloudy | Sunny Sunny | Sunny Sunny | Clear Clear | Clear Clear |\n| Chance of rain | 5% | 15% | 16% | 9% | 1% | 1% | 2% | 4% |\n| Precipitation | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | [...] | Wind Direction | WNW | W | W | WSW | WSW | WSW | W | W |\n| Cloud Cover | 17% | 84% | 99% | 70% | 5% | 0% | 0% | 0% |\n| UV Index | 0 | 0 | 0 | 1 | 2 | 1 | 0 | 0 |\n| Visibility | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km |"
+                  },
+                  {
+                    "title": "Weather in H%C3%A0 N%E1%BB%99i",
+                    "url": "https://www.weatherapi.com/",
+                    "source": "weatherapi.com",
+                    "snippet": "{'location': {'name': 'Province De Hà Tĩnh', 'region': '', 'country': 'Vietnam', 'lat': 18.3333, 'lon': 105.9, 'tz_id': 'Asia/Bangkok', 'localtime_epoch': 1794321549, 'localtime': '2026-11-10 21:39'}, 'current': {'last_updated_epoch': 1794321000, 'last_updated': '2026-11-10 21:30', 'temp_c': 18.2, 'temp_f': 64.7, 'is_day': 0, 'condition': {'text': 'Patchy rain nearby', 'icon': '//cdn.weatherapi.com/weather/64x64/night/176.png', 'code': 1063}, 'wind_mph': 7.4, 'wind_kph': 11.9, 'wind_degree': 308, 'wind_dir': 'NW', 'pressure_mb': 1023.0, 'pressure_in': 30.22, 'precip_mm': 0.02, 'precip_in': 0.0, 'humidity': 72, 'cloud': 100, 'feelslike_c': 16.8, 'feelslike_f': 62.2, 'windchill_c': 18.2, 'windchill_f': 64.7, 'heatindex_c': 18.2, 'heatindex_f': 64.7, 'dewpoint_c': 13.0, 'dewpoint_f': 55.4, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 0.0, 'gust_mph': 15.5, 'gust_kph': 24.9, 'will_it_rain': 0, 'chance_of_rain': 21, 'will_it_snow': 0, 'chance_of_snow': 0, 'wetbulb_c': 15.0, 'wetbulb_f': 59.1}}"
+                  },
+                  {
+                    "title": "Weather in San Jose, United States in November 2026 - Detailed Forecast",
+                    "url": "https://www.easeweather.com/north-america/united-states/california/santa-clara-county/san-jose/november",
+                    "source": "easeweather.com",
+                    "snippet": "| Nov. 8 | Patchy rain possible Patchy rain possible | 19° /12° | 0.8 mm | 4 |\n| Nov. 9 | Partly cloudy Partly cloudy | 20° /12° | 0 mm | 5 |\n| Nov. 10 | Partly cloudy Partly cloudy | 21° /12° | 0 mm | 3.2 |\n| Nov. 11 | Light rain Light rain | 21° /12° | 3.8 mm | 3.2 |\n| Nov. 12 | Mist Mist | 18° /10° | 0 mm | 3.1 |\n| Nov. 13 | Moderate rain Moderate rain | 17° /10° | 12 mm | 3.1 |\n| Nov. 14 | Light rain Light rain | 17° /12° | 9.3 mm | 3 | [...] Your guide to San Jose weather in November - trends and predictions\n\n### Temperatures\n\n Expect cooler weather in first days of November 2026 in San Jose with the forecast suggesting a temperature of 19.9 °C, lower than the historical average.\n In general, the average temperature in San Jose at the beginning of November is 20.4 °C. As the month progressed, temperatures tended to significantly cool down, reaching an average of 15.7 °C by the end of November.\n\n### Rain 🌧️ [...] | 15 Patchy rain possible 14° | 16 Thundery outbreaks possible 15° | 17 Moderate rain 15° | 18 Moderate or heavy rain with thunder 14° | 19 Partly cloudy 15° | 20 Overcast 15° | 21 Overcast 17° |\n| 22 Patchy rain possible 17° | 23 Patchy rain possible 15° | 24 Partly cloudy 14° | 25 Light rain 15° | 26 Partly cloudy 17° | 27 Partly cloudy 17° | 28 Cloudy 15° |\n| 29 Light rain 15° | 30 Mist 17° |"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Thời tiết hôm nay tại Hà Nội (10 tháng 11 năm 2026) như sau:\n\n- **Nhiệt độ**: 18.2°C (64.7°F)\n- **Thời tiết**: Có mưa rải rác gần đó\n- **Gió**: Từ hướng tây bắc với tốc độ 11.9 km/h (7.4 mph)\n- **Độ ẩm**: 72%\n\nNếu bạn cần thêm thông tin chi tiết, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "weather",
+          "args": {
+            "location": "Hà Nội",
+            "timeframe": "today"
+          },
+          "result": {
+            "tool": "weather",
+            "location": "Hà Nội",
+            "timeframe": "today",
+            "summary": "According to the weatherapi.com source, the weather forecast for Hà Nội today, November 10, 2026, is patchy rain nearby with a temperature of 18.2°C (64.7°F). The wind is coming from the northwest at 11.9 kph (7.4 mph) and the humidity is at 72%. The other sources do not provide specific weather details for Hà Nội.",
+            "items": [
+              {
+                "title": "United States weather forecast for Tuesday, 10 November 2026",
+                "url": "https://www.weather25.com/north-america/usa?page=date&date=10-11",
+                "source": "weather25.com",
+                "snippet": "| Chance of snow | 0% | 0% | 0% | 0% | 0% | 0% | 0% | 0% |\n| Chance of frost | 0% | 0% | 0% | 0% | 0% | 0% | 0% | 0% |\n| Humidity | 63% | 67% | 64% | 59% | 43% | 41% | 52% | 60% |\n| Wind | 12Km/h | 12Km/h | 12Km/h | 12Km/h | 20Km/h | 18Km/h | 13Km/h | 14Km/h |\n| Wind Gust | 34Km/h | 30Km/h | 30Km/h | 24Km/h | 33Km/h | 40Km/h | 39Km/h | 43Km/h |\n| Wind Degree | 289° 289° | 267° 267° | 261° 261° | 251° 251° | 256° 256° | 256° 256° | 264° 264° | 273° 273° | [...] |  |  |  |  |  |  |  |  |\n ---  ---  ---  --- |\n| 00:00 | 03:00 | 06:00 | 09:00 | 12:00 | 15:00 | 18:00 | 21:00 |\n| Temperature | 8°C | 7°C | 7°C | 9°C | 14°C | 16°C | 14°C | 12°C |\n| Weather | Clear Clear | Cloudy Cloudy | Overcast Overcast | Cloudy Cloudy | Sunny Sunny | Sunny Sunny | Clear Clear | Clear Clear |\n| Chance of rain | 5% | 15% | 16% | 9% | 1% | 1% | 2% | 4% |\n| Precipitation | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | 0 mm | [...] | Wind Direction | WNW | W | W | WSW | WSW | WSW | W | W |\n| Cloud Cover | 17% | 84% | 99% | 70% | 5% | 0% | 0% | 0% |\n| UV Index | 0 | 0 | 0 | 1 | 2 | 1 | 0 | 0 |\n| Visibility | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km | 10 Km |"
+              },
+              {
+                "title": "Weather in H%C3%A0 N%E1%BB%99i",
+                "url": "https://www.weatherapi.com/",
+                "source": "weatherapi.com",
+                "snippet": "{'location': {'name': 'Province De Hà Tĩnh', 'region': '', 'country': 'Vietnam', 'lat': 18.3333, 'lon': 105.9, 'tz_id': 'Asia/Bangkok', 'localtime_epoch': 1794321549, 'localtime': '2026-11-10 21:39'}, 'current': {'last_updated_epoch': 1794321000, 'last_updated': '2026-11-10 21:30', 'temp_c': 18.2, 'temp_f': 64.7, 'is_day': 0, 'condition': {'text': 'Patchy rain nearby', 'icon': '//cdn.weatherapi.com/weather/64x64/night/176.png', 'code': 1063}, 'wind_mph': 7.4, 'wind_kph': 11.9, 'wind_degree': 308, 'wind_dir': 'NW', 'pressure_mb': 1023.0, 'pressure_in': 30.22, 'precip_mm': 0.02, 'precip_in': 0.0, 'humidity': 72, 'cloud': 100, 'feelslike_c': 16.8, 'feelslike_f': 62.2, 'windchill_c': 18.2, 'windchill_f': 64.7, 'heatindex_c': 18.2, 'heatindex_f': 64.7, 'dewpoint_c': 13.0, 'dewpoint_f': 55.4, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 0.0, 'gust_mph': 15.5, 'gust_kph': 24.9, 'will_it_rain': 0, 'chance_of_rain': 21, 'will_it_snow': 0, 'chance_of_snow': 0, 'wetbulb_c': 15.0, 'wetbulb_f': 59.1}}"
+              },
+              {
+                "title": "Weather in San Jose, United States in November 2026 - Detailed Forecast",
+                "url": "https://www.easeweather.com/north-america/united-states/california/santa-clara-county/san-jose/november",
+                "source": "easeweather.com",
+                "snippet": "| Nov. 8 | Patchy rain possible Patchy rain possible | 19° /12° | 0.8 mm | 4 |\n| Nov. 9 | Partly cloudy Partly cloudy | 20° /12° | 0 mm | 5 |\n| Nov. 10 | Partly cloudy Partly cloudy | 21° /12° | 0 mm | 3.2 |\n| Nov. 11 | Light rain Light rain | 21° /12° | 3.8 mm | 3.2 |\n| Nov. 12 | Mist Mist | 18° /10° | 0 mm | 3.1 |\n| Nov. 13 | Moderate rain Moderate rain | 17° /10° | 12 mm | 3.1 |\n| Nov. 14 | Light rain Light rain | 17° /12° | 9.3 mm | 3 | [...] Your guide to San Jose weather in November - trends and predictions\n\n### Temperatures\n\n Expect cooler weather in first days of November 2026 in San Jose with the forecast suggesting a temperature of 19.9 °C, lower than the historical average.\n In general, the average temperature in San Jose at the beginning of November is 20.4 °C. As the month progressed, temperatures tended to significantly cool down, reaching an average of 15.7 °C by the end of November.\n\n### Rain 🌧️ [...] | 15 Patchy rain possible 14° | 16 Thundery outbreaks possible 15° | 17 Moderate rain 15° | 18 Moderate or heavy rain with thunder 14° | 19 Partly cloudy 15° | 20 Overcast 15° | 21 Overcast 17° |\n| 22 Patchy rain possible 17° | 23 Patchy rain possible 15° | 24 Partly cloudy 14° | 25 Light rain 15° | 26 Partly cloudy 17° | 27 Partly cloudy 17° | 28 Cloudy 15° |\n| 29 Light rain 15° | 30 Mist 17° |"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:39:12"
+    },
+    {
+      "turn_index": 7,
+      "started_at": "2026-11-10T21:39:14",
+      "user": "Hãy kiểm tra và che dữ liệu nhạy cảm: Email là dev@corp.com và Token là sk-live-987654321.",
+      "status": "answered",
+      "assistant_text": "Dữ liệu nhạy cảm đã được che giấu như sau:\n\n- Email là [REDACTED:email]\n- Token là [REDACTED:api_key]\n\nNếu bạn cần thêm hỗ trợ hoặc thông tin khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "redact",
+              "args": {
+                "text": "Email là dev@corp.com và Token là sk-live-987654321."
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "redact",
+              "args": {
+                "text": "Email là dev@corp.com và Token là sk-live-987654321."
+              },
+              "result": {
+                "tool": "redact_text",
+                "redacted_text": "Email là [REDACTED:email] và Token là [REDACTED:api_key].",
+                "redaction_count": 2,
+                "findings": [
+                  {
+                    "type": "api_key",
+                    "count": 1
+                  },
+                  {
+                    "type": "email",
+                    "count": 1
+                  }
+                ],
+                "chars_in": 52,
+                "chars_out": 57,
+                "note": "Raw secret values are never echoed back; findings carry only type and count."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dữ liệu nhạy cảm đã được che giấu như sau:\n\n- Email là [REDACTED:email]\n- Token là [REDACTED:api_key]\n\nNếu bạn cần thêm hỗ trợ hoặc thông tin khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "redact",
+          "args": {
+            "text": "Email là dev@corp.com và Token là sk-live-987654321."
+          },
+          "result": {
+            "tool": "redact_text",
+            "redacted_text": "Email là [REDACTED:email] và Token là [REDACTED:api_key].",
+            "redaction_count": 2,
+            "findings": [
+              {
+                "type": "api_key",
+                "count": 1
+              },
+              {
+                "type": "email",
+                "count": 1
+              }
+            ],
+            "chars_in": 52,
+            "chars_out": 57,
+            "note": "Raw secret values are never echoed back; findings carry only type and count."
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:39:17"
+    },
+    {
+      "turn_index": 8,
+      "started_at": "2026-11-10T21:39:24",
+      "user": "Trên Hacker News tuần này mọi người đang bàn gì về AI agent evaluation?",
+      "status": "answered",
+      "assistant_text": "Trong tuần này, trên Hacker News có một số bài thảo luận liên quan đến \"AI agent evaluation\" như sau:\n\n1. **[Show HN: My first project, an AI-powered financial news analyzer](https://github.com/lamarcol/NotBot)**  \n   - **Ngày**: 08 tháng 11 năm 2026  \n   - **Điểm**: 3 | **Bình luận**: 2  \n   - [Thảo luận trên Hacker News](https://news.ycombinator.com/item?id=50418158)\n\n2. **[AbMaze: Evaluating frontier AI agents on protein fitness landscapes](https://valenlabs.com/blog/abmaze)**  \n   - **Ngày**: 06 tháng 11 năm 2026  \n   - **Điểm**: 3 | **Bình luận**: 0  \n   - [Thảo luận trên Hacker News](https://news.ycombinator.com/item?id=50399378)\n\n3. **[Show HN: Gauge – Open-Source CLI to recursively improve your docs](https://github.com/gauge-sh/gauge-cli)**  \n   - **Ngày**: 04 tháng 11 năm 2026  \n   - **Điểm**: 43 | **Bình luận**: 10  \n   - [Thảo luận trên Hacker News](https://news.ycombinator.com/item?id=50371090)\n\nNếu bạn cần thêm thông tin hoặc muốn thảo luận về một bài cụ thể, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "hn_search",
+              "args": {
+                "query": "AI agent evaluation",
+                "sort_by": "date",
+                "timeframe": "week"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "hn_search",
+              "args": {
+                "query": "AI agent evaluation",
+                "sort_by": "date",
+                "timeframe": "week"
+              },
+              "result": {
+                "tool": "hn_search",
+                "query": "AI agent evaluation",
+                "sort_by": "date",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "Show HN: My first project, an AI-powered financial news analyzer",
+                    "url": "https://github.com/lamarcol/NotBot",
+                    "discussion_url": "https://news.ycombinator.com/item?id=50418158",
+                    "source": "github.com",
+                    "date": "2026-11-08T22:34:06Z",
+                    "summary": "3 points, 2 comments on Hacker News",
+                    "metrics": {
+                      "points": 3,
+                      "comments": 2
+                    }
+                  },
+                  {
+                    "title": "AbMaze: Evaluating frontier AI agents on protein fitness landscapes",
+                    "url": "https://valenlabs.com/blog/abmaze",
+                    "discussion_url": "https://news.ycombinator.com/item?id=50399378",
+                    "source": "valenlabs.com",
+                    "date": "2026-11-06T22:31:45Z",
+                    "summary": "3 points, 0 comments on Hacker News",
+                    "metrics": {
+                      "points": 3,
+                      "comments": 0
+                    }
+                  },
+                  {
+                    "title": "Show HN: Gauge – Open-Source CLI to recursively improve your docs",
+                    "url": "https://github.com/gauge-sh/gauge-cli",
+                    "discussion_url": "https://news.ycombinator.com/item?id=50371090",
+                    "source": "github.com",
+                    "date": "2026-11-04T20:31:30Z",
+                    "summary": "43 points, 10 comments on Hacker News",
+                    "metrics": {
+                      "points": 43,
+                      "comments": 10
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Trong tuần này, trên Hacker News có một số bài thảo luận liên quan đến \"AI agent evaluation\" như sau:\n\n1. **[Show HN: My first project, an AI-powered financial news analyzer](https://github.com/lamarcol/NotBot)**  \n   - **Ngày**: 08 tháng 11 năm 2026  \n   - **Điểm**: 3 | **Bình luận**: 2  \n   - [Thảo luận trên Hacker News](https://news.ycombinator.com/item?id=50418158)\n\n2. **[AbMaze: Evaluating frontier AI agents on protein fitness landscapes](https://valenlabs.com/blog/abmaze)**  \n   - **Ngày**: 06 tháng 11 năm 2026  \n   - **Điểm**: 3 | **Bình luận**: 0  \n   - [Thảo luận trên Hacker News](https://news.ycombinator.com/item?id=50399378)\n\n3. **[Show HN: Gauge – Open-Source CLI to recursively improve your docs](https://github.com/gauge-sh/gauge-cli)**  \n   - **Ngày**: 04 tháng 11 năm 2026  \n   - **Điểm**: 43 | **Bình luận**: 10  \n   - [Thảo luận trên Hacker News](https://news.ycombinator.com/item?id=50371090)\n\nNếu bạn cần thêm thông tin hoặc muốn thảo luận về một bài cụ thể, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "AI agent evaluation",
+            "sort_by": "date",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "hn_search",
+            "query": "AI agent evaluation",
+            "sort_by": "date",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Show HN: My first project, an AI-powered financial news analyzer",
+                "url": "https://github.com/lamarcol/NotBot",
+                "discussion_url": "https://news.ycombinator.com/item?id=50418158",
+                "source": "github.com",
+                "date": "2026-11-08T22:34:06Z",
+                "summary": "3 points, 2 comments on Hacker News",
+                "metrics": {
+                  "points": 3,
+                  "comments": 2
+                }
+              },
+              {
+                "title": "AbMaze: Evaluating frontier AI agents on protein fitness landscapes",
+                "url": "https://valenlabs.com/blog/abmaze",
+                "discussion_url": "https://news.ycombinator.com/item?id=50399378",
+                "source": "valenlabs.com",
+                "date": "2026-11-06T22:31:45Z",
+                "summary": "3 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 3,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: Gauge – Open-Source CLI to recursively improve your docs",
+                "url": "https://github.com/gauge-sh/gauge-cli",
+                "discussion_url": "https://news.ycombinator.com/item?id=50371090",
+                "source": "github.com",
+                "date": "2026-11-04T20:31:30Z",
+                "summary": "43 points, 10 comments on Hacker News",
+                "metrics": {
+                  "points": 43,
+                  "comments": 10
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:39:30"
+    },
+    {
+      "turn_index": 9,
+      "started_at": "2026-11-10T21:39:32",
+      "user": "Tìm repo Python về đánh giá AI agent trên GitHub.",
+      "status": "answered",
+      "assistant_text": "Dưới đây là một số repository Python liên quan đến đánh giá AI agent trên GitHub:\n\n1. **[mlflow/mlflow](https://github.com/mlflow/mlflow)**  \n   - **Mô tả**: Nền tảng mã nguồn mở cho kỹ thuật AI cho các agent, LLM và mô hình ML. MLflow cho phép các nhóm ở mọi quy mô gỡ lỗi, đánh giá, theo dõi và tối ưu hóa các ứng dụng AI chất lượng sản xuất trong khi kiểm soát chi phí và quản lý quyền truy cập vào các mô hình và dữ liệu.  \n   - **Sao**: 28,746 | **Forks**: 6,604 | **Vấn đề mở**: 2,223\n\n2. **[google/adk-python](https://github.com/google/adk-python)**  \n   - **Mô tả**: Bộ công cụ mã nguồn mở, dựa trên mã, cho việc xây dựng, đánh giá và triển khai các agent AI tinh vi với tính linh hoạt và kiểm soát.  \n   - **Sao**: 22,173 | **Forks**: 4,331 | **Vấn đề mở**: 432\n\n3. **[raga-ai-hub/RagaAI-Catalyst](https://github.com/raga-ai-hub/RagaAI-Catalyst)**  \n   - **Mô tả**: SDK Python cho quan sát, theo dõi và đánh giá AI agent. Bao gồm các tính năng như theo dõi agent, llm và công cụ, gỡ lỗi hệ thống đa agent, bảng điều khiển tự lưu trữ và phân tích nâng cao với chế độ xem dòng thời gian và đồ thị thực thi.  \n   - **Sao**: 16,194 | **Forks**: 3,572 | **Vấn đề mở**: 48\n\n4. **[dataelement/bisheng](https://github.com/dataelement/bisheng)**  \n   - **Mô tả**: BISHENG là một nền tảng Agent mã nguồn mở cho việc xây dựng, triển khai và quản lý các ứng dụng AI. Nó kết hợp các agent AI, quy trình làm việc, RAG và quản lý tri thức, tích hợp agent desktop và hosting ứng dụng vibecoding với quản lý mô hình thống nhất, đánh giá và quan sát.  \n   - **Sao**: 12,217 | **Forks**: 2,016 | **Vấn đề mở**: 11\n\n5. **[Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard)**  \n   - **Mô tả**: Nền tảng Red Teaming AI toàn diện bảo vệ hệ sinh thái AI thông qua quét Agent, quét Kỹ năng, quét MCP, quét hạ tầng AI và đánh giá jailbreak LLM.  \n   - **Sao**: 7,457 | **Forks**: 749 | **Vấn đề mở**: 26\n\nNếu bạn cần thêm thông tin hoặc muốn tìm hiểu sâu hơn về một repository cụ thể, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "github_search",
+              "args": {
+                "query": "AI agent evaluation",
+                "language": "Python",
+                "sort_by": "stars"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "github_search",
+              "args": {
+                "query": "AI agent evaluation",
+                "language": "Python",
+                "sort_by": "stars"
+              },
+              "result": {
+                "tool": "github_search",
+                "query": "AI agent evaluation",
+                "api_query": "AI agent evaluation language:Python",
+                "sort_by": "stars",
+                "total_results": 8134,
+                "items": [
+                  {
+                    "title": "mlflow/mlflow",
+                    "url": "https://github.com/mlflow/mlflow",
+                    "source": "github.com",
+                    "date": "2026-11-10T14:12:18Z",
+                    "summary": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
+                    "metrics": {
+                      "stars": 28746,
+                      "forks": 6604,
+                      "open_issues": 2223
+                    },
+                    "language": "Python"
+                  },
+                  {
+                    "title": "google/adk-python",
+                    "url": "https://github.com/google/adk-python",
+                    "source": "github.com",
+                    "date": "2026-11-10T08:17:42Z",
+                    "summary": "An open-source, code-first Python toolkit for building, evaluating, and deploying sophisticated AI agents with flexibility and control.",
+                    "metrics": {
+                      "stars": 22173,
+                      "forks": 4331,
+                      "open_issues": 432
+                    },
+                    "language": "Python"
+                  },
+                  {
+                    "title": "raga-ai-hub/RagaAI-Catalyst",
+                    "url": "https://github.com/raga-ai-hub/RagaAI-Catalyst",
+                    "source": "github.com",
+                    "date": "2026-02-11T14:43:33Z",
+                    "summary": "Python SDK for Agent AI Observability, Monitoring and Evaluation Framework. Includes features like agent, llm and tools tracing, debugging multi-agentic system, self-hosted dashboard and advanced analytics with timeline and execution graph view ",
+                    "metrics": {
+                      "stars": 16194,
+                      "forks": 3572,
+                      "open_issues": 48
+                    },
+                    "language": "Python"
+                  },
+                  {
+                    "title": "dataelement/bisheng",
+                    "url": "https://github.com/dataelement/bisheng",
+                    "source": "github.com",
+                    "date": "2026-11-10T14:26:46Z",
+                    "summary": "BISHENG is an open-source enterprise Agent platform for building, deploying, and managing AI applications. It combines AI agents, workflows, RAG and knowledge management, desktop agent integration, and vibecoding app hosting with unified model management, evaluation, observabilit",
+                    "metrics": {
+                      "stars": 12217,
+                      "forks": 2016,
+                      "open_issues": 11
+                    },
+                    "language": "Python"
+                  },
+                  {
+                    "title": "Tencent/AI-Infra-Guard",
+                    "url": "https://github.com/Tencent/AI-Infra-Guard",
+                    "source": "github.com",
+                    "date": "2026-11-10T08:34:00Z",
+                    "summary": "A full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, Skills Scan, MCP scan, AI Infra scan and LLM jailbreak evaluation.",
+                    "metrics": {
+                      "stars": 7457,
+                      "forks": 749,
+                      "open_issues": 26
+                    },
+                    "language": "Python"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là một số repository Python liên quan đến đánh giá AI agent trên GitHub:\n\n1. **[mlflow/mlflow](https://github.com/mlflow/mlflow)**  \n   - **Mô tả**: Nền tảng mã nguồn mở cho kỹ thuật AI cho các agent, LLM và mô hình ML. MLflow cho phép các nhóm ở mọi quy mô gỡ lỗi, đánh giá, theo dõi và tối ưu hóa các ứng dụng AI chất lượng sản xuất trong khi kiểm soát chi phí và quản lý quyền truy cập vào các mô hình và dữ liệu.  \n   - **Sao**: 28,746 | **Forks**: 6,604 | **Vấn đề mở**: 2,223\n\n2. **[google/adk-python](https://github.com/google/adk-python)**  \n   - **Mô tả**: Bộ công cụ mã nguồn mở, dựa trên mã, cho việc xây dựng, đánh giá và triển khai các agent AI tinh vi với tính linh hoạt và kiểm soát.  \n   - **Sao**: 22,173 | **Forks**: 4,331 | **Vấn đề mở**: 432\n\n3. **[raga-ai-hub/RagaAI-Catalyst](https://github.com/raga-ai-hub/RagaAI-Catalyst)**  \n   - **Mô tả**: SDK Python cho quan sát, theo dõi và đánh giá AI agent. Bao gồm các tính năng như theo dõi agent, llm và công cụ, gỡ lỗi hệ thống đa agent, bảng điều khiển tự lưu trữ và phân tích nâng cao với chế độ xem dòng thời gian và đồ thị thực thi.  \n   - **Sao**: 16,194 | **Forks**: 3,572 | **Vấn đề mở**: 48\n\n4. **[dataelement/bisheng](https://github.com/dataelement/bisheng)**  \n   - **Mô tả**: BISHENG là một nền tảng Agent mã nguồn mở cho việc xây dựng, triển khai và quản lý các ứng dụng AI. Nó kết hợp các agent AI, quy trình làm việc, RAG và quản lý tri thức, tích hợp agent desktop và hosting ứng dụng vibecoding với quản lý mô hình thống nhất, đánh giá và quan sát.  \n   - **Sao**: 12,217 | **Forks**: 2,016 | **Vấn đề mở**: 11\n\n5. **[Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard)**  \n   - **Mô tả**: Nền tảng Red Teaming AI toàn diện bảo vệ hệ sinh thái AI thông qua quét Agent, quét Kỹ năng, quét MCP, quét hạ tầng AI và đánh giá jailbreak LLM.  \n   - **Sao**: 7,457 | **Forks**: 749 | **Vấn đề mở**: 26\n\nNếu bạn cần thêm thông tin hoặc muốn tìm hiểu sâu hơn về một repository cụ thể, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "github_search",
+          "args": {
+            "query": "AI agent evaluation",
+            "language": "Python",
+            "sort_by": "stars"
+          },
+          "result": {
+            "tool": "github_search",
+            "query": "AI agent evaluation",
+            "api_query": "AI agent evaluation language:Python",
+            "sort_by": "stars",
+            "total_results": 8134,
+            "items": [
+              {
+                "title": "mlflow/mlflow",
+                "url": "https://github.com/mlflow/mlflow",
+                "source": "github.com",
+                "date": "2026-11-10T14:12:18Z",
+                "summary": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
+                "metrics": {
+                  "stars": 28746,
+                  "forks": 6604,
+                  "open_issues": 2223
+                },
+                "language": "Python"
+              },
+              {
+                "title": "google/adk-python",
+                "url": "https://github.com/google/adk-python",
+                "source": "github.com",
+                "date": "2026-11-10T08:17:42Z",
+                "summary": "An open-source, code-first Python toolkit for building, evaluating, and deploying sophisticated AI agents with flexibility and control.",
+                "metrics": {
+                  "stars": 22173,
+                  "forks": 4331,
+                  "open_issues": 432
+                },
+                "language": "Python"
+              },
+              {
+                "title": "raga-ai-hub/RagaAI-Catalyst",
+                "url": "https://github.com/raga-ai-hub/RagaAI-Catalyst",
+                "source": "github.com",
+                "date": "2026-02-11T14:43:33Z",
+                "summary": "Python SDK for Agent AI Observability, Monitoring and Evaluation Framework. Includes features like agent, llm and tools tracing, debugging multi-agentic system, self-hosted dashboard and advanced analytics with timeline and execution graph view ",
+                "metrics": {
+                  "stars": 16194,
+                  "forks": 3572,
+                  "open_issues": 48
+                },
+                "language": "Python"
+              },
+              {
+                "title": "dataelement/bisheng",
+                "url": "https://github.com/dataelement/bisheng",
+                "source": "github.com",
+                "date": "2026-11-10T14:26:46Z",
+                "summary": "BISHENG is an open-source enterprise Agent platform for building, deploying, and managing AI applications. It combines AI agents, workflows, RAG and knowledge management, desktop agent integration, and vibecoding app hosting with unified model management, evaluation, observabilit",
+                "metrics": {
+                  "stars": 12217,
+                  "forks": 2016,
+                  "open_issues": 11
+                },
+                "language": "Python"
+              },
+              {
+                "title": "Tencent/AI-Infra-Guard",
+                "url": "https://github.com/Tencent/AI-Infra-Guard",
+                "source": "github.com",
+                "date": "2026-11-10T08:34:00Z",
+                "summary": "A full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, Skills Scan, MCP scan, AI Infra scan and LLM jailbreak evaluation.",
+                "metrics": {
+                  "stars": 7457,
+                  "forks": 749,
+                  "open_issues": 26
+                },
+                "language": "Python"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T21:39:42"
+    }
+  ]
+}
