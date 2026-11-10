@@ -1,0 +1,913 @@
+{
+  "run_id": "v4_B_group_openai_20261110T193503475832",
+  "version": "v4",
+  "artifact_version": "v4+p8c424808034f+t9141f44a709f",
+  "prompt_hash": "8c424808034f16033d5db68a5ab63d28150c92c9c8c79360061b3495ae4db3a9",
+  "tools_hash": "9141f44a709f5470a73ea843bdcf934e538e9a217e32bedc6c0f17b6b97b37cc",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "system_prompt": "C:\\HUST\\VIN\\lab3\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\HUST\\VIN\\lab3\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day03_v2_research_group",
+  "dataset_role": "group",
+  "description": "Case do nhóm tự viết thêm để cover thêm trường hợp",
+  "generated_at": "2026-11-10T19:35:03",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 9,
+    "case_accuracy": 0.9,
+    "tool_routing_accuracy": 0.9,
+    "argument_accuracy": 0.9,
+    "multiturn_accuracy": 0.8,
+    "failure_counts": {
+      "missing_info": 1
+    },
+    "observed_mismatch_counts": {
+      "missing_tool_call": 1
+    }
+  },
+  "results": [
+    {
+      "id": "G01_hn_route_timeframe",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Nhắc rõ Hacker News -> hn_search (không phải social_search/lookup); 'tuần này' -> timeframe=week."
+      },
+      "input": "Trên Hacker News tuần này mọi người đang bàn gì về AI agent evaluation?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "AI agent evaluation",
+              "sort_by": "date",
+              "timeframe": "week"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "AI agent evaluation",
+            "sort_by": "date",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "hn_search",
+            "query": "AI agent evaluation",
+            "sort_by": "date",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Show HN: My first project, an AI-powered financial news analyzer",
+                "url": "https://github.com/lamarcol/NotBot",
+                "discussion_url": "https://news.ycombinator.com/item?id=50418158",
+                "source": "github.com",
+                "date": "2026-11-08T22:34:06Z",
+                "summary": "3 points, 2 comments on Hacker News",
+                "metrics": {
+                  "points": 3,
+                  "comments": 2
+                }
+              },
+              {
+                "title": "AbMaze: Evaluating frontier AI agents on protein fitness landscapes",
+                "url": "https://valenlabs.com/blog/abmaze",
+                "discussion_url": "https://news.ycombinator.com/item?id=50399378",
+                "source": "valenlabs.com",
+                "date": "2026-11-06T22:31:45Z",
+                "summary": "3 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 3,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: Gauge – Open-Source CLI to recursively improve your docs",
+                "url": "https://github.com/gauge-sh/gauge-cli",
+                "discussion_url": "https://news.ycombinator.com/item?id=50371090",
+                "source": "github.com",
+                "date": "2026-11-04T20:31:30Z",
+                "summary": "43 points, 10 comments on Hacker News",
+                "metrics": {
+                  "points": 43,
+                  "comments": 10
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_hn_sort_latest",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "'HN' là Hacker News; 'mới nhất' -> sort_by=date, không để mặc định relevance."
+      },
+      "input": "Dân dev trên HN đang nói gì mới nhất về Rust?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "Rust",
+              "sort_by": "date"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "Rust",
+            "sort_by": "date"
+          },
+          "result": {
+            "tool": "hn_search",
+            "query": "Rust",
+            "sort_by": "date",
+            "timeframe": null,
+            "items": [
+              {
+                "title": "Ask HN: What other tools similar to Alibaba OCR do people use with LLMs?",
+                "url": "https://news.ycombinator.com/item?id=50439324",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439324",
+                "source": "news.ycombinator.com",
+                "date": "2026-11-10T12:23:42Z",
+                "summary": "1 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 1,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "What's new in the .NET 11 runtime",
+                "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439284",
+                "source": "learn.microsoft.com",
+                "date": "2026-11-10T12:20:07Z",
+                "summary": "2 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 2,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: VoxaDub – Open-source AI video dubbing with speaker-aware voices",
+                "url": "https://github.com/kadirb4rut/voxadub",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439152",
+                "source": "github.com",
+                "date": "2026-11-10T12:06:21Z",
+                "summary": "1 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 1,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: Cosh – An open-source AI agent orchestrator",
+                "url": "https://github.com/DiegoZaluski/co-sh",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439141",
+                "source": "github.com",
+                "date": "2026-11-10T12:05:13Z",
+                "summary": "2 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 2,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: AI Hustle Team – an AI on its own computer that does your daily work",
+                "url": "https://aihustleteam.com/",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439136",
+                "source": "aihustleteam.com",
+                "date": "2026-11-10T12:04:29Z",
+                "summary": "1 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 1,
+                  "comments": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_weather_tomorrow",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Câu hỏi thời tiết -> weather; 'ngày mai' -> timeframe=tomorrow, không để mặc định today."
+      },
+      "input": "Ngày mai Hà Nội có mưa không?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "timeframe": "tomorrow"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "location": "Hà Nội",
+              "timeframe": "tomorrow"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "weather",
+          "args": {
+            "location": "Hà Nội",
+            "timeframe": "tomorrow"
+          },
+          "result": {
+            "tool": "weather",
+            "location": "Hà Nội",
+            "timeframe": "tomorrow",
+            "summary": "The sources do not provide a specific weather forecast for Hà Nội tomorrow, November 11, 2026. However, the weatherapi.com source indicates that the current weather in Hà Nội is overcast with a temperature of 19°C (66.2°F) and a forecast of no rain. The accuweather.com source provides a general November forecast for Hà Nội, indicating daily highs ranging from 18.9°C to 33.2°C and lows from 13.7°C to 24.8°C. The timeanddate.com source lists weather conditions for several days in November, including passing showers and overcast conditions, but does not specify the forecast for November 11.",
+            "items": [
+              {
+                "title": "Weather in Hà Nội",
+                "url": "https://www.weatherapi.com/",
+                "source": "weatherapi.com",
+                "snippet": "{'location': {'name': 'Province De Hà Tĩnh', 'region': '', 'country': 'Vietnam', 'lat': 18.3333, 'lon': 105.9, 'tz_id': 'Asia/Bangkok', 'localtime_epoch': 1794312497, 'localtime': '2026-11-10 19:08'}, 'current': {'last_updated_epoch': 1794312000, 'last_updated': '2026-11-10 19:00', 'temp_c': 19.0, 'temp_f': 66.2, 'is_day': 0, 'condition': {'text': 'Overcast', 'icon': '//cdn.weatherapi.com/weather/64x64/night/122.png', 'code': 1009}, 'wind_mph': 6.0, 'wind_kph': 9.7, 'wind_degree': 324, 'wind_dir': 'NW', 'pressure_mb': 1022.0, 'pressure_in': 30.19, 'precip_mm': 0.0, 'precip_in': 0.0, 'humidity': 70, 'cloud': 98, 'feelslike_c': 18.2, 'feelslike_f': 64.8, 'windchill_c': 19.0, 'windchill_f': 66.2, 'heatindex_c': 19.0, 'heatindex_f': 66.2, 'dewpoint_c': 13.4, 'dewpoint_f': 56.2, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 0.0, 'gust_mph': 14.5, 'gust_kph': 23.4, 'will_it_rain': 0, 'chance_of_rain': 18, 'will_it_snow': 0, 'chance_of_snow': 0, 'wetbulb_c': 15.6, 'wetbulb_f': 60.0}}"
+              },
+              {
+                "title": "Hanoi, Hanoi, Vietnam Monthly Weather | AccuWeather",
+                "url": "https://www.accuweather.com/en/vn/hanoi/353412/november-weather/353412",
+                "source": "accuweather.com",
+                "snippet": "Hanoi's November 2026 forecast shows daily high temperatures ranging from 18.9° to 33.2°, with overnight lows between 13.7° and 24.8°. The average high for November is 25° with an average low of 19°. AccuWeather's monthly forecast extends further ahead than any other source, with day-by-day RealFeel® Temperatures giving a complete picture of how November weather will actually feel in Hanoi. See also: December | January | February.\n\nFurther Ahead [...] 2025   2026   2027\n\n## 10-Day\n\nS\n\nM\n\nT\n\nW\n\nT\n\nF\n\nS\n\n1\n\n34°\n\n25° 2\n\n31°\n\n25° 3\n\nRain and a thunderstorm\n\n31°\n\n24° 4\n\nA little rain; hot and humid\n\n33°\n\n25° 5\n\nHumid; a little morning rain\n\n32°\n\n24° 6\n\nA bit of afternoon rain; warm\n\n31°\n\n24° 7\n\nVery warm with a little rain\n\n32°\n\n24° 8\n\nVery warm with a little rain\n\n31°\n\n20° 9\n\nA.M. rain; otherwise, cloudy\n\n23°\n\n20° 10\n\nMostly sunny\n\n24°\n\n17° 11\n\nMostly cloudy\n\n22°\n\n17° 12\n\nRain\n\n19°\n\n17° 13\n\nCloudy\n\n27°\n\n21° 14\n\nSunny intervals\n\n28°\n\n21° 15 [...] Plenty of sun\n\n21°\n\n15° 30\n\nPlenty of sun\n\n22°\n\n14° 1\n\nSunny to partly cloudy\n\n21°\n\n14° 2\n\nA little afternoon rain\n\n21°\n\n17° 3\n\nClouds yielding to sun\n\n22°\n\n15° 4\n\nPartly sunny\n\n23°\n\n14° 5\n\nPartly sunny\n\n22°\n\n14°\n\n## Temperature Graph\n\n°C\n\nAvg. Hi\n\nAvg. Lo\n\nActual Hi\n\nActual Lo\n\nForecast Hi\n\nForecast Lo\n\n## November Weather in Hanoi"
+              },
+              {
+                "title": "Hanoi, Vietnam 14 day weather forecast",
+                "url": "https://www.timeanddate.com/weather/vietnam/hanoi/ext",
+                "source": "timeanddate.com",
+                "snippet": "| Sun Nov 22 | Image 18: Passing showers. Overcast. | 77 / 69°F | Passing showers. Overcast. | 78°F | 7 mph | ↑ | 72% | 61% | 0.07\" | 0(Low) | 6:11 am | 5:14 pm |\n|  Updated Saturday, November 7, 2026 10:24:27 pm Hanoi time - Weather by CustomWeather, © 2026 | [...] | Fri Nov 13 | Image 9: Passing showers. Overcast. | 71 / 66°F | Passing showers. Overcast. | 69°F | 8 mph | ↑ | 87% | 51% | 0.17\" | 3(Moderate) | 6:05 am | 5:15 pm |\n| Sat Nov 14 | Image 10: Partly cloudy. | 82 / 66°F | Partly cloudy. | 84°F | 4 mph | ↑ | 60% | 0% | 0.00\" | 3(Moderate) | 6:06 am | 5:15 pm |\n| Sun Nov 15 | Image 11: Passing showers. Overcast. | 78 / 68°F | Passing showers. Cloudy. | 79°F | 3 mph | ↑ | 60% | 54% | 0.07\" | 3(Moderate) | 6:06 am | 5:15 pm | [...] | Mon Nov 16 | Image 12: Cloudy. | 81 / 72°F | Cloudy. | 82°F | 4 mph | ↑ | 56% | 52% | 0.02\" | 3(Moderate) | 6:07 am | 5:15 pm |\n| Tue Nov 17 | Image 13: Passing showers. Overcast. | 82 / 72°F | Passing showers. Broken clouds. | 83°F | 7 mph | ↑ | 59% | 57% | 0.07\" | 3(Moderate) | 6:07 am | 5:14 pm |\n| Wed Nov 18 | Image 14: Sprinkles late. Overcast. | 83 / 72°F | Sprinkles. Overcast. | 87°F | 12 mph | ↑ | 69% | 44% | 0.04\" | 3(Moderate) | 6:08 am | 5:14 pm |"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G04_redact_before_share",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Yêu cầu che thông tin cá nhân -> redact; không gọi send, không tự viết lại bằng tay."
+      },
+      "input": "Che giúp mình email và số điện thoại trong đoạn này trước khi gửi khách: 'Liên hệ anh Nam qua nam.tran@corp.vn hoặc 0912345678.'",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "redact",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "redact",
+            "args": {
+              "text": "Liên hệ anh Nam qua nam.tran@corp.vn hoặc 0912345678."
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "redact",
+          "args": {
+            "text": "Liên hệ anh Nam qua nam.tran@corp.vn hoặc 0912345678."
+          },
+          "result": {
+            "tool": "redact_text",
+            "redacted_text": "Liên hệ anh Nam qua [REDACTED:email] hoặc [REDACTED:phone].",
+            "redaction_count": 2,
+            "findings": [
+              {
+                "type": "email",
+                "count": 1
+              },
+              {
+                "type": "phone",
+                "count": 1
+              }
+            ],
+            "chars_in": 53,
+            "chars_out": 59,
+            "note": "Raw secret values are never echoed back; findings carry only type and count."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G05_weather_general_knowledge",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Kiến thức chung có chữ 'mưa' nhưng không hỏi dự báo ở địa điểm nào -> không gọi weather."
+      },
+      "input": "Mưa axit hình thành như thế nào?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Mưa axit hình thành chủ yếu do sự kết hợp của các khí ô nhiễm trong không khí, đặc biệt là sulfur dioxide (SO₂) và nitrogen oxides (NOₓ). Dưới đây là quá trình hình thành mưa axit:\n\n1. **Phát thải khí ô nhiễm**: Các hoạt động công nghiệp, giao thông vận tải, và đốt nhiên liệu hóa thạch tạo ra khí SO₂ và NOₓ. Những khí này được thải vào không khí.\n\n2. **Phản ứng hóa học**: Khi các khí này tiếp xúc với hơi nước trong không khí, chúng sẽ phản ứng hóa học để tạo ra axit sulfuric (H₂SO₄) và axit nitric (HNO₃).\n\n3. **Ngưng tụ**: Các axit này sau đó hòa tan vào các giọt nước trong mây. Khi mây trở nên nặng nề, chúng sẽ rơi xuống đất dưới dạng mưa.\n\n4. **Mưa axit**: Khi mưa rơi xuống, nó có thể có độ pH thấp hơn 5.6, cho thấy tính axit của nó. Mưa axit có thể gây hại cho môi trường, làm hỏng cây cối, đất đai, và các công trình xây dựng.\n\nMưa axit là một vấn đề môi trường nghiêm trọng, và việc giảm thiểu phát thải khí ô nhiễm là cần thiết để hạn chế hiện tượng này.",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M01_weather_fill_location",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Lượt 1 thiếu địa điểm, lượt 2 bổ sung; phải giữ timeframe=week từ lượt 1."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Thời tiết cả tuần này thế nào nhỉ?"
+        },
+        {
+          "role": "user",
+          "content": "À mình hỏi ở Đà Nẵng nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "location": "Đà Nẵng",
+              "timeframe": "week"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "weather",
+          "args": {
+            "location": "Đà Nẵng",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "weather",
+            "location": "Đà Nẵng",
+            "timeframe": "week",
+            "summary": "The sources indicate that Da Nang's November 2026 forecast shows daily high temperatures ranging from 24.9° to 32.2°, with overnight lows between 21.6° and 25.4°. AccuWeather's monthly forecast extends further ahead than any other source, with day-by-day RealFeel® Temperatures. The weatherapi.com source describes the current weather on November 10, 2026, as patchy rain nearby with a temperature of 25.6°C and a chance of rain at 24%. The YouTube video suggests November 2026 will be warm, humid, and frequently wet with heavy showers possible, moderate winds, and decreasing rainfall towards the end of the month.",
+            "items": [
+              {
+                "title": "Weather in Đà Nẵng, Vietnam",
+                "url": "https://www.weatherapi.com/",
+                "source": "weatherapi.com",
+                "snippet": "{'location': {'name': 'Giomtrom', 'region': '', 'country': 'Vietnam', 'lat': 10.15, 'lon': 106.5, 'tz_id': 'Asia/Ho_Chi_Minh', 'localtime_epoch': 1794312518, 'localtime': '2026-11-10 19:08'}, 'current': {'last_updated_epoch': 1794312000, 'last_updated': '2026-11-10 19:00', 'temp_c': 25.6, 'temp_f': 78.1, 'is_day': 0, 'condition': {'text': 'Patchy rain nearby', 'icon': '//cdn.weatherapi.com/weather/64x64/night/176.png', 'code': 1063}, 'wind_mph': 2.9, 'wind_kph': 4.7, 'wind_degree': 91, 'wind_dir': 'E', 'pressure_mb': 1011.0, 'pressure_in': 29.85, 'precip_mm': 0.01, 'precip_in': 0.0, 'humidity': 92, 'cloud': 66, 'feelslike_c': 29.6, 'feelslike_f': 85.3, 'windchill_c': 25.6, 'windchill_f': 78.1, 'heatindex_c': 29.0, 'heatindex_f': 84.2, 'dewpoint_c': 24.3, 'dewpoint_f': 75.7, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 0.0, 'gust_mph': 11.0, 'gust_kph': 17.7, 'will_it_rain': 0, 'chance_of_rain': 24, 'will_it_snow': 0, 'chance_of_snow': 0, 'wetbulb_c': 24.6, 'wetbulb_f': 76.3}}"
+              },
+              {
+                "title": "Da Nang, Danang, Vietnam Monthly Weather | AccuWeather",
+                "url": "https://www.accuweather.com/en/vn/da-nang/352954/november-weather/352954",
+                "source": "accuweather.com",
+                "snippet": "Da Nang's November 2026 forecast shows daily high temperatures ranging from 24.9° to 32.2°, with overnight lows between 21.6° and 25.4°. The average high for November is 28° with an average low of 23°. AccuWeather's monthly forecast extends further ahead than any other source, with day-by-day RealFeel® Temperatures giving a complete picture of how November weather will actually feel in Da Nang. See also: December | January | February.\n\nFurther Ahead [...] More\n\nAccuWeather Ready   Business   Health   Hurricane   Leisure and Recreation   Severe Weather   Space and Astronomy   Sports   Travel   Weather News\n\n© 2026 AccuWeather, Inc. \"AccuWeather\" and sun design are registered trademarks of AccuWeather, Inc. All Rights Reserved.\n\nTerms of Use  |  Privacy Policy  |  Cookie Policy  |  Data Sources [...] Further Ahead\n\n### December 2026 ### January 2027 ### February 2027\n\nAround the Globe\n\n### Hurricane Tracker ### Radar & Maps ### News ### Video\n\nTop Stories\n\nWeather Forecasts\n\nFirst snow of the season possible across Great Lakes, Northeast\n\n9 hours ago\n\n  Hurricane\n\nAtlantic hurricane season shuts down early as El Niño dominates\n\n10 hours ago\n\n  Weather Forecasts\n\nPacific storms with atmospheric rivers to hammer British Columbia, US\n\n12 hours ago\n\n  Climate"
+              },
+              {
+                "title": "November 2026 Weather Outlook For Da Nang, Vietnam",
+                "url": "https://www.youtube.com/watch?v=KBJXCCRroh8",
+                "source": "youtube.com",
+                "snippet": "[2:10] easterly direction. For beachgoers, this combination of rain, wind, and rougher seas can occasionally affect swimming, boat trips, and other water activities.\n[2:22] Overall, the expected November of 2026 pattern for Daong is warm, humid, and frequently wet with heavy showers\n[2:30] possible, moderate winds, and gradual decreasing rainfall towards the end of the month. And remember, this is a [...] ### Transcript\n[0:01] If you're planning a holiday to Daenong, Vietnam in November of 2026, what kind of weather can you expect?\n[0:08] Looking one month ahead, November is normally a very humid and extremely wet month in Daong. The city is moving through its main rainy season, so\n[0:16] visitors should be prepared for frequent showers, cloudy periods, and the possibility of heavier rainfall. This [...] [1:48] hour of every day. The non-castell have periods of sunshine between the showers, but heavy tropical rainfall can occur\n[1:56] and outdoor plans will need to be flexible. Winds should also be noticeable. November is historically one\n[2:03] of the Nong's windiest months with average hourly wind speeds of around 10 mph. Winds are predominantly from an"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M02_weather_ask_location",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Không có địa điểm ở lượt nào -> hỏi lại bằng clarify, không đoán location."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tuần sau mình đi công tác"
+        },
+        {
+          "role": "user",
+          "content": "Mai trời có mưa không?"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "weather",
+            "args": {
+              "location": "Mai",
+              "timeframe": "tomorrow"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "missing_info",
+        "failures": [
+          "missing tool call clarify",
+          "extra tool call weather"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "weather",
+          "args": {
+            "location": "Mai",
+            "timeframe": "tomorrow"
+          },
+          "result": {
+            "tool": "weather",
+            "location": "Mai",
+            "timeframe": "tomorrow",
+            "summary": "The sources indicate that the weather in Mangochi, Malawi, on November 10, 2026, is sunny with a temperature of 31.6°C. For Mai, the sources suggest that from November 9 to November 12, 2026, there will be widespread rain in Central Vietnam, but on the day after November 10, it is forecasted to be sunny in central regions with a high of 25°C. However, the specific weather forecast for Mai tomorrow is not directly provided in the sources.",
+            "items": [
+              {
+                "title": "Weather in Mai",
+                "url": "https://www.weatherapi.com/",
+                "source": "weatherapi.com",
+                "snippet": "{'location': {'name': 'Mangochi', 'region': 'Mangochi', 'country': 'Malawi', 'lat': -14.4829998016357, 'lon': 35.2669982910156, 'tz_id': 'Africa/Blantyre', 'localtime_epoch': 1794312530, 'localtime': '2026-11-10 14:08'}, 'current': {'last_updated_epoch': 1794312000, 'last_updated': '2026-11-10 14:00', 'temp_c': 31.6, 'temp_f': 88.9, 'is_day': 1, 'condition': {'text': 'Sunny', 'icon': '//cdn.weatherapi.com/weather/64x64/day/113.png', 'code': 1000}, 'wind_mph': 7.2, 'wind_kph': 11.5, 'wind_degree': 175, 'wind_dir': 'S', 'pressure_mb': 1013.0, 'pressure_in': 29.92, 'precip_mm': 0.0, 'precip_in': 0.0, 'humidity': 40, 'cloud': 10, 'feelslike_c': 31.8, 'feelslike_f': 89.2, 'windchill_c': 31.6, 'windchill_f': 88.9, 'heatindex_c': 32.4, 'heatindex_f': 90.3, 'dewpoint_c': 16.5, 'dewpoint_f': 61.7, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 7.5, 'gust_mph': 15.0, 'gust_kph': 24.2, 'will_it_rain': 0, 'chance_of_rain': 1, 'will_it_snow': 0, 'chance_of_snow': 0, 'wetbulb_c': 21.5, 'wetbulb_f': 70.6}}"
+              },
+              {
+                "title": "7-Day Travel Weather Forecast from November 5 to November 11, 2026 | VTVWDB",
+                "url": "https://www.youtube.com/watch?v=RXxq2gWGnnI",
+                "source": "youtube.com",
+                "snippet": "[1:24] tinh xảo. Thời tiết cũng sẽ ủng hộ cho du khách tới khám phá thành phố Đà Nẵng trong khoảng thời gian là 4 ngày tới khi trời hoàn toàn nắng ráo từ sáng đến\n[1:32] chiều. Ba ngày sau đó trời chuyển mưa nhiều đôi lúc có mưa ràm nặng hạ.\n[1:38] Tại thành phố Hồ Chí Minh, du khách có thể sắp xếp kế hoạch tham quan giả ngoại vào buổi sáng khi mà trời có nắng. Nhiệt\n[1:44] độ cao nhất là 33 đến 34° C, hơi nóng vào giữa trưa và đầu giờ chiều. Về chiều tối dự báo là những cơn mưa cuối mùa vẫn [...] ### Transcript\n[0:03] [âm nhạc]\n[0:07] Xin kính chào quý vị khán giả. Trong giai đoạn từ ngày 9 đến ngày 12 tháng 11, khả năng khu vực Trung Bộ sẽ có mưa lớn diện rộng do tác động của nhiệu động\n[0:15] gió đông trên cao. Còn trước đó, thời tiết các tỉnh thành ở khu vực này nhìn chung là ít mưa, có nắng đẹp, thuận lợi cho các hoạt động vui chơi và giả ngoại.\n[0:24] Cụ thể, trong ngày mai, dự báo các phường ở miền Trung sẽ đều nắng ráo từ sáng đến chiều. Nhiệt độ cao nhất phổ [...] [2:16] vẫn mát lạnh với mức nhiệt 25° C. Trong kế hoạch tham quan thủ đô, quý vị có thể sắp xếp lịch trình tới khám phá vườn quốc gia Ba Vì. Nơi đây không chỉ nổi\n[2:25] tiếng là địa cấm trại săn mâ lý tưởng mà dịp này còn hút khách tới chiêm ngưỡng mùa hoa giả quỳ. Những bông hoa vàng rực\n[2:32] bung nở mang tới khung cảnh bắt mắt dưới nắng và cố bản tin là phần dự báo thời tiết cho một số phường khác trên cả nước.\n[2:43] [âm nhạc]\n[2:50] [âm nhạc]\n[3:03] [âm nhạc]"
+              },
+              {
+                "title": "United States weather forecast for Tuesday, 11 May 2027",
+                "url": "https://www.weather25.com/north-america/usa?page=date&date=11-5",
+                "source": "weather25.com",
+                "snippet": "| Year | Temperatures | Rain | Weather | Wind |\n ---  --- \n| 2026 - 11 May | 15 °  / 8 ° | 0 mm | Overcast | 14 Km/h |\n| 2025 - 11 May | 22 °  / 12 ° | 0 mm | Clear | 14 Km/h |\n| 2024 - 11 May | 14 °  / 3 ° | 0.6 mm | Patchy rain possible | 13 Km/h |\n| 2023 - 11 May | 25 °  / 9 ° | 0 mm | Partly cloudy | 15 Km/h |\n| 2022 - 11 May | 22 °  / 3 ° | 0 mm | Clear | 15 Km/h |\n| 2021 - 11 May | 14 °  / 5 ° | 0 mm | Cloudy | 19 Km/h |"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M03_hn_carry_constraints",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Gộp ràng buộc qua 3 lượt: timeframe=month (lượt 2) + sort_by=date (lượt 3)."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm thảo luận trên Hacker News về AI agent"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy trong tháng này thôi"
+        },
+        {
+          "role": "user",
+          "content": "Sắp xếp theo mới nhất giúp mình"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "timeframe": "month",
+              "sort_by": "date"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "AI agent",
+              "sort_by": "date",
+              "timeframe": "month"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "AI agent",
+            "sort_by": "date",
+            "timeframe": "month"
+          },
+          "result": {
+            "tool": "hn_search",
+            "query": "AI agent",
+            "sort_by": "date",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "Ask HN: How do you keep secrets out of your AI agents' context?",
+                "url": "https://news.ycombinator.com/item?id=50439393",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439393",
+                "source": "news.ycombinator.com",
+                "date": "2026-11-10T12:30:10Z",
+                "summary": "1 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 1,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: Cosh – An open-source AI agent orchestrator",
+                "url": "https://github.com/DiegoZaluski/co-sh",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439141",
+                "source": "github.com",
+                "date": "2026-11-10T12:05:13Z",
+                "summary": "2 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 2,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Show HN: Eigin. Local-first and no-shell personal AI for iOS",
+                "url": "https://github.com/Eigin-AI/Eigin",
+                "discussion_url": "https://news.ycombinator.com/item?id=50439089",
+                "source": "github.com",
+                "date": "2026-11-10T12:00:34Z",
+                "summary": "2 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 2,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "I Access Auditor – see and revoke what your AI coding agents can access",
+                "url": "https://github.com/dirmedmr-alt/ai-access-auditor",
+                "discussion_url": "https://news.ycombinator.com/item?id=50437570",
+                "source": "github.com",
+                "date": "2026-11-10T08:31:13Z",
+                "summary": "1 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 1,
+                  "comments": 0
+                }
+              },
+              {
+                "title": "Antelog – stops AI coding agents from running dangerous commands",
+                "url": "https://antelog.dev/",
+                "discussion_url": "https://news.ycombinator.com/item?id=50437368",
+                "source": "antelog.dev",
+                "date": "2026-11-10T07:57:26Z",
+                "summary": "1 points, 0 comments on Hacker News",
+                "metrics": {
+                  "points": 1,
+                  "comments": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M04_redact_not_policy",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Yêu cầu làm sạch đoạn text cụ thể -> redact, không nhầm sang policy (tra quy định)."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình định dán log lỗi này vào prompt: 'user=an.le@corp.vn token=sk-test-123456'"
+        },
+        {
+          "role": "user",
+          "content": "Làm sạch dữ liệu nhạy cảm trong đó trước đã"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "redact",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "redact",
+            "args": {
+              "text": "user=an.le@corp.vn token=sk-test-123456"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "redact",
+          "args": {
+            "text": "user=an.le@corp.vn token=sk-test-123456"
+          },
+          "result": {
+            "tool": "redact_text",
+            "redacted_text": "user=[REDACTED:email] [REDACTED:secret_assignment]",
+            "redaction_count": 2,
+            "findings": [
+              {
+                "type": "email",
+                "count": 1
+              },
+              {
+                "type": "secret_assignment",
+                "count": 1
+              }
+            ],
+            "chars_in": 39,
+            "chars_out": 50,
+            "note": "Raw secret values are never echoed back; findings carry only type and count."
+          }
+        }
+      ]
+    },
+    {
+      "id": "M05_hn_not_twitter",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Lượt 2 sửa nguồn: bỏ X/Twitter, chuyển sang hn_search; không gọi social_search."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình muốn xem phản ứng của cộng đồng về GPT-5"
+        },
+        {
+          "role": "user",
+          "content": "Không phải trên X đâu, trên Hacker News ấy"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "hn_search",
+            "args": {
+              "query": "GPT-5",
+              "sort_by": "relevance"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "hn_search",
+          "args": {
+            "query": "GPT-5",
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "hn_search",
+            "query": "GPT-5",
+            "sort_by": "relevance",
+            "timeframe": null,
+            "items": [
+              {
+                "title": "GPT-5",
+                "url": "https://openai.com/gpt-5/",
+                "discussion_url": "https://news.ycombinator.com/item?id=44826997",
+                "source": "openai.com",
+                "date": "2025-08-07T17:00:21Z",
+                "summary": "2063 points, 2482 comments on Hacker News",
+                "metrics": {
+                  "points": 2063,
+                  "comments": 2482
+                }
+              },
+              {
+                "title": "GPT-5.5",
+                "url": "https://openai.com/index/introducing-gpt-5-5/",
+                "discussion_url": "https://news.ycombinator.com/item?id=47879092",
+                "source": "openai.com",
+                "date": "2026-04-23T18:01:39Z",
+                "summary": "1580 points, 1056 comments on Hacker News",
+                "metrics": {
+                  "points": 1580,
+                  "comments": 1056
+                }
+              },
+              {
+                "title": "GPT-5.6",
+                "url": "https://openai.com/index/gpt-5-6/",
+                "discussion_url": "https://news.ycombinator.com/item?id=48849066",
+                "source": "openai.com",
+                "date": "2026-07-09T17:04:14Z",
+                "summary": "1561 points, 1112 comments on Hacker News",
+                "metrics": {
+                  "points": 1561,
+                  "comments": 1112
+                }
+              },
+              {
+                "title": "GPT-5.3-Codex",
+                "url": "https://openai.com/index/introducing-gpt-5-3-codex/",
+                "discussion_url": "https://news.ycombinator.com/item?id=46902638",
+                "source": "openai.com",
+                "date": "2026-02-05T18:08:08Z",
+                "summary": "1530 points, 605 comments on Hacker News",
+                "metrics": {
+                  "points": 1530,
+                  "comments": 605
+                }
+              },
+              {
+                "title": "GPT-5.2",
+                "url": "https://openai.com/index/introducing-gpt-5-2/",
+                "discussion_url": "https://news.ycombinator.com/item?id=46234788",
+                "source": "openai.com",
+                "date": "2025-12-11T18:04:47Z",
+                "summary": "1195 points, 1083 comments on Hacker News",
+                "metrics": {
+                  "points": 1195,
+                  "comments": 1083
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

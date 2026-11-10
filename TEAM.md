@@ -2,17 +2,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A / L3B
-- Repo nhóm: `K5-L3A-DAY03-TenNhom-ResearchAgentToolEval` hoặc `K5-L3B-DAY03-TenNhom-ResearchAgentToolEval` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: NiceTry
+- Lớp: L3B
+- Repo nhóm: K5-L3B-DAY03-NiceTry-ResearchAgentToolEval
+- URL repo, nhánh nộp, commit chốt: https://github.com/Vuthanh2508/K5-L3B-DAY03-NiceTry-ResearchAgentToolEval
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
-|   2 |        |      |       |        |         |
+|   1 |Vũ Thành|2A202603930|       |Vuthanh2508|         |
+|   2 |Nguyễn Thành Nam|2A202603934|       |        |         |
+|   3 |Vũ Huy Hiệu|2A202603979|       |        |         |
+|   4 |Đỗ Việt Anh|2A202603973|       |        |         |
 
 ## Cá nhân
 
