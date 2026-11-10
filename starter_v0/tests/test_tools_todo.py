@@ -244,3 +244,51 @@ def test_hn_search_http_error_returns_error_dict(fake_http) -> None:
     assert result["error"] == "HTTPError"
     fake_http(requests.Timeout("timed out"))
     assert TOOL_FUNCTIONS["hn_search"](query="OpenAI")["error"] == "Timeout"
+
+
+# ---------------- github_search ----------------
+
+def test_github_search_maps_repos_and_builds_query(monkeypatch, fake_http) -> None:
+    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
+    calls = fake_http(FakeResponse({"total_count": 2, "items": [
+        {"full_name": "org/agent-eval", "html_url": "https://github.com/org/agent-eval", "description": "Eval for agents",
+         "stargazers_count": 1200, "forks_count": 80, "open_issues_count": 5, "language": "Python", "pushed_at": "2026-11-01T00:00:00Z"},
+        {"full_name": "no/url"},
+    ]}))
+    result = TOOL_FUNCTIONS["github_search"](query="agent evaluation", language="Python", limit=3)
+    assert calls[0]["url"] == "https://api.github.com/search/repositories"
+    assert calls[0]["params"]["q"] == "agent evaluation language:Python"
+    assert calls[0]["params"]["sort"] == "stars"
+    assert calls[0]["params"]["per_page"] == 3
+    assert "Authorization" not in calls[0]["headers"]
+    assert len(result["items"]) == 1
+    item = result["items"][0]
+    assert item["title"] == "org/agent-eval"
+    assert item["metrics"]["stars"] == 1200
+
+
+def test_github_search_bad_input_from_model(monkeypatch, fake_http) -> None:
+    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
+    calls = fake_http(FakeResponse({"items": []}))
+    empty = TOOL_FUNCTIONS["github_search"](query="")
+    assert empty["error"] == "ValueError" and calls == []
+    result = TOOL_FUNCTIONS["github_search"](query="rag", sort_by="popular", limit="abc", timeframe="decade")
+    assert "error" not in result
+    assert result["sort_by"] == "stars"
+    assert calls[0]["params"]["per_page"] == 5
+    assert "pushed:" not in calls[0]["params"]["q"]
+    TOOL_FUNCTIONS["github_search"](query="rag", sort_by="best_match", limit=0, timeframe="month")
+    assert calls[1]["params"]["per_page"] == 1
+    assert "sort" not in calls[1]["params"]
+    assert "pushed:>=" in calls[1]["params"]["q"]
+
+
+def test_github_search_rate_limit_returns_error_dict(monkeypatch, fake_http) -> None:
+    monkeypatch.setenv("GITHUB_TOKEN", "test-token")
+    calls = fake_http(FakeResponse(status_code=403))
+    result = TOOL_FUNCTIONS["github_search"](query="llm")
+    assert calls[0]["headers"]["Authorization"] == "Bearer test-token"
+    assert result["tool"] == "github_search"
+    assert result["error"] == "HTTPError"
+    fake_http(requests.Timeout("timed out"))
+    assert TOOL_FUNCTIONS["github_search"](query="llm")["error"] == "Timeout"

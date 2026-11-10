@@ -20,6 +20,7 @@ from .lookup.tool import web_search
 from .redact.tool import redact_text
 from .weather.tool import get_weather
 from .hn_search.tool import hn_search
+from .github_search.tool import github_search
 
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
@@ -41,6 +42,7 @@ TOOL_FUNCTIONS = {
     "redact": redact_text,
     "weather": get_weather,
     "hn_search": hn_search,
+    "github_search": github_search,
 }
 
 

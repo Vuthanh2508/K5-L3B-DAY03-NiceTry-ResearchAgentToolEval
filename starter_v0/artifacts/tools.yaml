@@ -157,3 +157,19 @@ tools:
         timeframe: {type: string, enum: [day, week, month, year], description: "Chỉ điền khi user nêu khoảng thời gian (hôm nay=day, tuần này=week, tháng này=month, năm nay=year)"}
         limit: {type: integer, default: 5, description: "Số kết quả, 1-20"}
       required: [query]
+
+  - name: github_search
+    description: >-
+      Tìm repository mã nguồn trên GitHub. DÙNG KHI người dùng hỏi repo/thư viện/framework/
+      code mẫu/project open-source về một chủ đề, repo nào nhiều sao nhất, hoặc repo nào mới
+      được cập nhật. KHÔNG DÙNG cho thảo luận cộng đồng (dùng hn_search), tweet (dùng
+      social_search), tin tức web (dùng lookup), hay paper học thuật (dùng papers).
+    parameters:
+      type: object
+      properties:
+        query: {type: string, default: "", description: "Từ khóa tiếng Anh ngắn gọn, vd 'agent evaluation'"}
+        sort_by: {type: string, enum: [stars, updated, best_match], default: "stars", description: "stars = nhiều sao nhất (mặc định); updated = mới cập nhật gần đây; best_match = khớp từ khóa nhất"}
+        language: {type: string, default: "", description: "Chỉ điền khi user nêu ngôn ngữ lập trình, vd 'Python', 'TypeScript'"}
+        timeframe: {type: string, enum: [week, month, year], description: "Chỉ điền khi user muốn repo còn hoạt động trong khoảng thời gian (tuần này=week, tháng này=month, năm nay=year)"}
+        limit: {type: integer, default: 5, description: "Số kết quả, 1-20"}
+      required: [query]
