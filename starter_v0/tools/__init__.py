@@ -19,6 +19,7 @@ from .send.tool import send_telegram
 from .lookup.tool import web_search
 from .redact.tool import redact_text
 from .weather.tool import get_weather
+from .hn_search.tool import hn_search
 
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
@@ -39,6 +40,7 @@ TOOL_FUNCTIONS = {
     "paper_text": get_arxiv_paper_text,
     "redact": redact_text,
     "weather": get_weather,
+    "hn_search": hn_search,
 }
 
 
