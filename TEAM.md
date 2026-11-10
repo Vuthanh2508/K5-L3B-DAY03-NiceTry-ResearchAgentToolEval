@@ -5,7 +5,7 @@
 - Tên nhóm: NiceTry
 - Lớp: L3B
 - Repo nhóm: K5-L3B-DAY03-NiceTry-ResearchAgentToolEval
-- URL repo, nhánh nộp, commit chốt: https://github.com/Vuthanh2508/K5-L3B-DAY03-NiceTry-ResearchAgentToolEval (nhánh `main`, commit chốt: c5431a7)
+- URL repo, nhánh nộp, commit chốt: https://github.com/Vuthanh2508/K5-L3B-DAY03-NiceTry-ResearchAgentToolEval (nhánh `main`, commit chốt: f79112a)
 
 ## Thành viên
 

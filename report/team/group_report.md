@@ -12,7 +12,7 @@
 - Lớp: L3B
 - Thành viên và phân công: xem [TEAM.md](../../TEAM.md)
 - Provider/model: OpenAI `gpt-4o-mini` cho toàn bộ run v0–v6 có số liệu trong báo cáo. Một run OpenRouter (`v0_B_base_openrouter_…`) được giữ làm tham khảo, không dùng để so sánh
-- Commit chốt: c5431a7
+- Commit chốt: f79112a
 
 ## 2. Mục tiêu và cách tiếp cận — PHẦN A: Giới thiệu agent
 
