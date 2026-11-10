@@ -54,7 +54,17 @@ TOOL_ICONS: dict[str, str] = {
     "paper_text": "📖",
     "weather": "🌤️",
     "redact": "🔒",
+    "hn_search": "🟧",
+    "github_search": "🐙",
 }
+
+# Tool do nhóm tự viết (CP3); dùng để đánh dấu "(Tool mới)" trong sidebar.
+TEAM_TOOLS = {"weather", "redact", "hn_search", "github_search"}
+
+# Nhãn version mặc định, phải khớp với artifacts hiện tại (prompt/tools).
+DEFAULT_VERSION_LABEL = "v6"
+# Provider mặc định: openai (đã có OPENAI_API_KEY trong .env).
+DEFAULT_PROVIDER = "openai"
 
 
 def run_model_tool_loop_ui(
@@ -225,7 +235,11 @@ def main() -> None:
     with st.sidebar.expander("⚙️ Cấu hình thử nghiệm Agent", expanded=False):
         # Provider selection
         available_providers = ["openrouter", "openai", "gemini", "anthropic", "ollama"]
-        provider_name = st.selectbox("Model Provider:", available_providers, index=0)
+        provider_name = st.selectbox(
+            "Model Provider:",
+            available_providers,
+            index=available_providers.index(DEFAULT_PROVIDER),
+        )
 
         # Model input
         default_model_map = {
@@ -236,7 +250,7 @@ def main() -> None:
             "ollama": "qwen2.5:7b",
         }
         model_name = st.text_input("Tên Model:", value=default_model_map.get(provider_name, ""))
-        version_label = st.text_input("Artifact Version:", value="v4")
+        version_label = st.text_input("Artifact Version:", value=DEFAULT_VERSION_LABEL)
 
         col_w, col_r = st.columns(2)
         with col_w:
@@ -266,6 +280,8 @@ def main() -> None:
             ("5. ✅ Xác nhận gửi Telegram", "Đồng ý, hãy gửi ngay bản tin lên Telegram."),
             ("6. 🌤️ Tool mới: Weather", "Thời tiết hôm nay tại Hà Nội thế nào?"),
             ("7. 🔒 Tool mới: Redact", "Hãy kiểm tra và che dữ liệu nhạy cảm: Email là dev@corp.com và Token là sk-live-987654321."),
+            ("8. 🟧 Tool mới: Hacker News", "Trên Hacker News tuần này mọi người đang bàn gì về AI agent evaluation?"),
+            ("9. 🐙 Tool mới: GitHub", "Tìm repo Python về đánh giá AI agent trên GitHub."),
         ]
 
         for label, text in samples:
@@ -274,12 +290,13 @@ def main() -> None:
                 st.rerun()
 
     # Sidebar: Tool Declarations list
-    with st.sidebar.expander("🛠️ Danh sách Tool đang có (12 tools)"):
+    with st.sidebar.expander("🛠️ Danh sách Tool đang có"):
         try:
             decls = load_tool_declarations(ARTIFACTS_DIR / "tools.yaml")
+            st.caption(f"{len(decls)} tools được khai báo trong tools.yaml")
             for t in decls:
                 icon = TOOL_ICONS.get(t["name"], "🔧")
-                is_custom = " *(Tool mới)*" if t["name"] in {"weather", "redact"} else ""
+                is_custom = " *(Tool mới)*" if t["name"] in TEAM_TOOLS else ""
                 st.markdown(f"**{icon} `{t['name']}`**{is_custom}: {t.get('description', '')}")
         except Exception as e:
             st.error(f"Không thể đọc tools.yaml: {e}")
