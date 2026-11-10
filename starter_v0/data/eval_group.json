@@ -31,22 +31,22 @@
       }
     },
     {
-      "id": "G02_hn_sort_latest",
+      "id": "G02_github_route_language",
       "phase": "B",
-      "query": "Dân dev trên HN đang nói gì mới nhất về Rust?",
-      "failure_type": "wrong_arg_value",
+      "query": "Tìm repo Python về đánh giá AI agent trên GitHub",
+      "failure_type": "wrong_tool",
       "expect": {
         "tool_calls": [
           {
-            "name": "hn_search",
+            "name": "github_search",
             "args": {
-              "sort_by": "date"
+              "language": "Python"
             }
           }
         ]
       },
       "metadata": {
-        "what_it_tests": "'HN' là Hacker News; 'mới nhất' -> sort_by=date, không để mặc định relevance."
+        "what_it_tests": "Hỏi repo/thư viện mã nguồn -> github_search (không phải hn_search hay lookup); 'Python' -> language=Python."
       }
     },
     {
@@ -214,29 +214,31 @@
       }
     },
     {
-      "id": "M05_hn_not_twitter",
+      "id": "M05_github_carry_language",
       "phase": "B",
       "turns": [
         {
           "role": "user",
-          "content": "Mình muốn xem phản ứng của cộng đồng về GPT-5"
+          "content": "Có thư viện mã nguồn mở nào để làm RAG không?"
         },
         {
           "role": "user",
-          "content": "Không phải trên X đâu, trên Hacker News ấy"
+          "content": "Chỉ lấy cái viết bằng TypeScript thôi"
         }
       ],
-      "failure_type": "wrong_tool",
+      "failure_type": "wrong_arg_value",
       "expect": {
         "tool_calls": [
           {
-            "name": "hn_search",
-            "args": {}
+            "name": "github_search",
+            "args": {
+              "language": "TypeScript"
+            }
           }
         ]
       },
       "metadata": {
-        "what_it_tests": "Lượt 2 sửa nguồn: bỏ X/Twitter, chuyển sang hn_search; không gọi social_search."
+        "what_it_tests": "Lượt 1 hỏi repo -> github_search; lượt 2 bổ sung ràng buộc, phải truyền language=TypeScript."
       }
     }
   ]
