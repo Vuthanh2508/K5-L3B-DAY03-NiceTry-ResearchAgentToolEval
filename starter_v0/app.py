@@ -222,72 +222,56 @@ def main() -> None:
     )
 
     # Sidebar Header
-    st.sidebar.title("⚙️ Cấu hình Agent")
+    with st.sidebar.expander("⚙️ Cấu hình thử nghiệm Agent", expanded=False):
+        # Provider selection
+        available_providers = ["openrouter", "openai", "gemini", "anthropic", "ollama"]
+        provider_name = st.selectbox("Model Provider:", available_providers, index=0)
 
-    # Provider selection
-    available_providers = ["openrouter", "openai", "gemini", "anthropic", "ollama"]
-    provider_name = st.sidebar.selectbox("Model Provider:", available_providers, index=0)
+        # Model input
+        default_model_map = {
+            "openrouter": "openai/gpt-4o-mini",
+            "openai": "gpt-4o-mini",
+            "gemini": "gemini-2.5-flash",
+            "anthropic": "claude-3-5-haiku-20241022",
+            "ollama": "qwen2.5:7b",
+        }
+        model_name = st.text_input("Tên Model:", value=default_model_map.get(provider_name, ""))
+        version_label = st.text_input("Artifact Version:", value="v4")
 
-    # Model input
-    default_model_map = {
-        "openrouter": "openai/gpt-4o-mini",
-        "openai": "gpt-4o-mini",
-        "gemini": "gemini-2.5-flash",
-        "anthropic": "claude-3-5-haiku-20241022",
-        "ollama": "qwen2.5:7b",
-    }
-    model_name = st.sidebar.text_input("Tên Model:", value=default_model_map.get(provider_name, ""))
-    version_label = st.sidebar.text_input("Artifact Version:", value="v4")
+        col_w, col_r = st.columns(2)
+        with col_w:
+            history_window = int(st.number_input("History Window:", min_value=1, max_value=20, value=5))
+        with col_r:
+            max_tool_rounds = int(st.number_input("Max Rounds:", min_value=1, max_value=10, value=4))
 
-    col_w, col_r = st.sidebar.columns(2)
-    with col_w:
-        history_window = int(st.sidebar.number_input("History Window:", min_value=1, max_value=20, value=5))
-    with col_r:
-        max_tool_rounds = int(st.sidebar.number_input("Max Rounds:", min_value=1, max_value=10, value=4))
+        # Reset button
+        if st.button("🔄 Bắt đầu phiên chat mới", use_container_width=True):
+            init_session(provider_name, model_name or None, version_label)
+            st.rerun()
 
     # Initialize session
     if "transcript_id" not in st.session_state:
         init_session(provider_name, model_name or None, version_label)
 
-    # Reset button
-    if st.sidebar.button("🔄 Bắt đầu phiên chat mới", use_container_width=True):
-        init_session(provider_name, model_name or None, version_label)
-        st.rerun()
-
     # Sidebar: Sample test cases (CP5 Rubric C6)
     st.sidebar.markdown("---")
-    st.sidebar.subheader("🎯 Câu hỏi mẫu thử nghiệm (CP5)")
-    st.sidebar.caption("Nhấp vào nút để tự động nạp yêu cầu vào chat:")
+    with st.sidebar.expander("🎯 Câu hỏi mẫu thử nghiệm (CP5)", expanded=False):
+        st.caption("Nhấp vào nút để tự động nạp yêu cầu vào chat:")
 
-    samples = [
-        ("1. 🔍 Yêu cầu thường (Research)", "Tìm kiếm các tin tức AI mới nhất trong tuần qua về OpenAI và DeepSeek."),
-        ("2. ❓ Thiếu thông tin (Missing Info)", "Hãy lấy các bài đăng gần đây của tài khoản này."),
-        ("3. 👤 Bổ sung thông tin", "Tài khoản @sama nhé."),
-        ("4. 📤 Yêu cầu gửi Telegram (Guardrail)", "Gửi bản tin tóm tắt vừa rồi lên Telegram."),
-        ("5. ✅ Xác nhận gửi Telegram", "Đồng ý, hãy gửi ngay bản tin lên Telegram."),
-        ("6. 🌤️ Tool mới: Weather", "Thời tiết hôm nay tại Hà Nội thế nào?"),
-        ("7. 🔒 Tool mới: Redact", "Hãy kiểm tra và che dữ liệu nhạy cảm: Email là dev@corp.com và Token là sk-live-987654321."),
-    ]
+        samples = [
+            ("1. 🔍 Yêu cầu thường (Research)", "Tìm kiếm các tin tức AI mới nhất trong tuần qua về OpenAI và DeepSeek."),
+            ("2. ❓ Thiếu thông tin (Missing Info)", "Hãy lấy các bài đăng gần đây của tài khoản này."),
+            ("3. 👤 Bổ sung thông tin", "Tài khoản @sama nhé."),
+            ("4. 📤 Yêu cầu gửi Telegram (Guardrail)", "Gửi bản tin tóm tắt vừa rồi lên Telegram."),
+            ("5. ✅ Xác nhận gửi Telegram", "Đồng ý, hãy gửi ngay bản tin lên Telegram."),
+            ("6. 🌤️ Tool mới: Weather", "Thời tiết hôm nay tại Hà Nội thế nào?"),
+            ("7. 🔒 Tool mới: Redact", "Hãy kiểm tra và che dữ liệu nhạy cảm: Email là dev@corp.com và Token là sk-live-987654321."),
+        ]
 
-    for label, text in samples:
-        if st.sidebar.button(label, key=f"btn_{label}", use_container_width=True):
-            st.session_state.pending_prompt = text
-            st.rerun()
-
-    # Sidebar: Transcript Download & Stats
-    st.sidebar.markdown("---")
-    st.sidebar.subheader("📄 Bằng chứng Transcript (Audit)")
-    st.sidebar.code(st.session_state.transcript_id, language="text")
-    st.sidebar.write(f"Số lượt chat (turns): **{st.session_state.turn_index}**")
-
-    current_transcript_json = json.dumps(st.session_state.transcript, ensure_ascii=False, indent=2, default=str)
-    st.sidebar.download_button(
-        label="💾 Tải Transcript JSON",
-        data=current_transcript_json,
-        file_name=f"{st.session_state.transcript_id}.transcript.json",
-        mime="application/json",
-        use_container_width=True,
-    )
+        for label, text in samples:
+            if st.button(label, key=f"btn_{label}", use_container_width=True):
+                st.session_state.pending_prompt = text
+                st.rerun()
 
     # Sidebar: Tool Declarations list
     with st.sidebar.expander("🛠️ Danh sách Tool đang có (12 tools)"):
