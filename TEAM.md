@@ -5,13 +5,13 @@
 - Tên nhóm: NiceTry
 - Lớp: L3B
 - Repo nhóm: K5-L3B-DAY03-NiceTry-ResearchAgentToolEval
-- URL repo, nhánh nộp, commit chốt: https://github.com/Vuthanh2508/K5-L3B-DAY03-NiceTry-ResearchAgentToolEval (nhánh `main`, commit chốt: [điền hash khi nộp])
+- URL repo, nhánh nộp, commit chốt: https://github.com/Vuthanh2508/K5-L3B-DAY03-NiceTry-ResearchAgentToolEval (nhánh `main`, commit chốt: c5431a7)
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |Vũ Thành|2A202603930|       |Vuthanh2508|Baseline và phân tích lỗi (CP1), tối ưu prompt v1–v5 (CP2), eval nhóm, version log và demo (CP5)|
+|   1 |Vũ Thành|2A202603930|vuthanhdz2508@gmail.com|Vuthanh2508|Baseline và phân tích lỗi (CP1), tối ưu prompt v1–v5 (CP2), eval nhóm, version log và demo (CP5)|
 |   2 |Nguyễn Thành Nam|2A202603934| ishodajo@gmail.com |Ishodayo|Team tool `hn_search` và `github_search` kèm unit test (CP3), viết bộ eval nhóm 10 case (CP4)|
 |   3 |Vũ Huy Hiệu|2A202603979|hieuvippro531@gmail.com|hieunhangia|Team tool weather kèm unit test (CP3), xây dựng base UI Streamlit (CP5)|
 |   4 |Đỗ Việt Anh|2A202603973|dovietanh240405@gmail.com|vietahnn|Team tool `redact` và unit test (CP3), refactor giao diện Streamlit (CP5)|

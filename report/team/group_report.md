@@ -12,7 +12,7 @@
 - Lớp: L3B
 - Thành viên và phân công: xem [TEAM.md](../../TEAM.md)
 - Provider/model: OpenAI `gpt-4o-mini` cho toàn bộ run v0–v6 có số liệu trong báo cáo. Một run OpenRouter (`v0_B_base_openrouter_…`) được giữ làm tham khảo, không dùng để so sánh
-- Commit chốt: [điền hash commit cuối khi nộp]
+- Commit chốt: c5431a7
 
 ## 2. Mục tiêu và cách tiếp cận — PHẦN A: Giới thiệu agent
 
@@ -180,6 +180,12 @@ Các lượt 2, 4 và 5 là điểm cần lưu ý khi chấm: hành vi "hỏi l�
 2. **Link tunnel.** Cloudflare quick tunnel không có cam kết uptime và đổi link mỗi lần chạy lại. Để demo cần giữ cả Streamlit và `cloudflared` đang chạy
 
 ## 6. Tổng hợp đóng góp
+
+Chi tiết phân công và đóng góp cụ thể của từng thành viên nằm trong [TEAM.md](../../TEAM.md) và các file báo cáo cá nhân trong thư mục `report/team/`:
+- Vũ Thành: [2A202603930_VuThanh.md](2A202603930_VuThanh.md)
+- Nguyễn Thành Nam: [2A202603934_NguyenThanhNam.md](2A202603934_NguyenThanhNam.md)
+- Vũ Huy Hiệu: [2A202603979_VuHuyHieu.md](2A202603979_VuHuyHieu.md)
+- Đỗ Việt Anh: [2A202603973_DoVietAnh.md](2A202603973_DoVietAnh.md)
 
 ## 7. Hạn chế và hướng cải thiện — B6. Reflection
 
