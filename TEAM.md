@@ -13,7 +13,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 |Vũ Thành|2A202603930|       |Vuthanh2508|Baseline và phân tích lỗi (CP1), tối ưu prompt v1–v5 (CP2), eval nhóm, version log và demo (CP5)|
 |   2 |Nguyễn Thành Nam|2A202603934| ishodajo@gmail.com |Ishodayo|Team tool `hn_search` và `github_search` kèm unit test (CP3), viết bộ eval nhóm 10 case (CP4)|
-|   3 |Vũ Huy Hiệu|2A202603979|       |        ||
+|   3 |Vũ Huy Hiệu|2A202603979|hieuvippro531@gmail.com|hieunhangia|Team tool weather kèm unit test (CP3), xây dựng base UI Streamlit (CP5)|
 |   4 |Đỗ Việt Anh|2A202603973|dovietanh240405@gmail.com|vietahnn|Team tool `redact` và unit test (CP3), refactor giao diện Streamlit (CP5)|
 
 ## Cá nhân
@@ -26,21 +26,6 @@ report/team/MSSV_HoTen.md
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
-Sao chép mục dưới đây cho từng thành viên.
-
-## HoVaTen-MSSV
-
-### Phần việc phụ trách
-
--
-
-### Đóng góp cụ thể
-
--
-
-### Bằng chứng
-
--
 ## VuThanh-2A202603930
 
 ### Phần việc phụ trách
@@ -81,6 +66,27 @@ Sao chép mục dưới đây cho từng thành viên.
 - Commit: `f385305` (hn_search), `7185995` (eval group), `3561737` (github_search)
 - `pytest` full: 94 passed, 0 failed, 14 skipped (stub tool starter); contract test xanh
 - Báo cáo cá nhân: `report/team/2A202603934_NguyenThanhNam.md`
+
+## VuHuyHieu-2A202603979
+
+### Phần việc phụ trách
+
+- CP3: viết team tool `weather` (tra cứu thời tiết qua Tavily Search API) kèm 3 unit test cho tool này
+- CP5: xây dựng giao diện Streamlit cơ bản ban đầu trong `starter_v0/app.py`, cấu hình requirements và sinh transcript chat thử nghiệm
+
+### Đóng góp cụ thể
+
+- Viết `starter_v0/tools/weather/tool.py` (55 dòng) và `starter_v0/tools/weather/TOOL.md`: tra cứu thời tiết qua Tavily Search API. Validate địa điểm rỗng, bắt thiếu API key, xử lý ngoại lệ và trả về error dict thay vì raise. Đăng ký tool trong `starter_v0/tools/__init__.py` và `starter_v0/artifacts/tools.yaml`.
+- Viết 3 unit test trong `starter_v0/tests/test_tools_todo.py`: `test_my_new_tool_happy_path` (mock HTTP, kiểm tra endpoint, query và summary), `test_my_new_tool_bad_input_from_model` (địa điểm rỗng trả về ValueError), `test_my_new_tool_failure_returns_error_dict` (thiếu API key trả về RuntimeError).
+- Xây dựng file `starter_v0/app.py` (450 dòng) tạo nền tảng giao diện Streamlit UI cho nhóm ở CP5: hỗ trợ đa provider (OpenAI, OpenRouter, Gemini), chọn version prompt/tool, giao diện chat hiển thị tool calls, và tự động xuất transcript JSON. Thêm dependency `streamlit` vào `starter_v0/requirements.txt`.
+- Chạy thử nghiệm baseline bổ sung với OpenRouter (`runs/v0_B_base_openrouter_20261110T175509128401.json`) và tạo các transcript chat thử nghiệm đầu tiên.
+
+### Bằng chứng
+
+- Commit: `3111f67` (feat: add weather tool and associated tests and documentation), `9f94e52` (update base UI streamlit)
+- File: `starter_v0/tools/weather/tool.py`, `starter_v0/tools/weather/TOOL.md`, `starter_v0/tools/__init__.py`, `starter_v0/artifacts/tools.yaml`, `starter_v0/tests/test_tools_todo.py`, `starter_v0/app.py`, `starter_v0/requirements.txt`
+- Kiểm chứng: `pytest starter_v0/tests/test_tools_todo.py -k test_my_new_tool` → 3 passed; `pytest starter_v0/tests/ -k weather` → 5 passed (contract test); full `pytest starter_v0/tests/` → 94 passed, 14 skipped.
+- Báo cáo cá nhân: `report/team/2A202603979_VuHuyHieu.md`
 
 ## DoVietAnh-2A202603973
 
