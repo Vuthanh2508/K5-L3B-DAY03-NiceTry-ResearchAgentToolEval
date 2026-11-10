@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 |Vũ Thành|2A202603930|       |Vuthanh2508|Baseline và phân tích lỗi (CP1), tối ưu prompt v1–v5 (CP2), eval nhóm, version log và demo (CP5)|
-|   2 |Nguyễn Thành Nam|2A202603934|       |        ||
+|   2 |Nguyễn Thành Nam|2A202603934| ishodajo@gmail.com |Ishodayo|Team tool `hn_search` và `github_search` kèm unit test (CP3), viết bộ eval nhóm 10 case (CP4)|
 |   3 |Vũ Huy Hiệu|2A202603979|       |        ||
 |   4 |Đỗ Việt Anh|2A202603973|dovietanh240405@gmail.com|vietahnn|Team tool `redact` và unit test (CP3), refactor giao diện Streamlit (CP5)|
 
@@ -61,6 +61,26 @@ Sao chép mục dưới đây cho từng thành viên.
 - Commit: 8e9dd3b, af09cad, e22e2e4 (email vuthanh250804@gmail.com), 3d44ccf (email vuthanhdz2508@gmail.com) (cả 2 đều là tài khoản github của em), transcript và sửa `app.py`
 - folder Run: run v1-v6
 - Transcript: v6_openai_20261110T213759077248
+
+## NguyenThanhNam-2A202603934
+
+### Phần việc phụ trách
+
+- CP3: viết 2 team tool `hn_search` (Hacker News) và `github_search` (GitHub), mỗi tool 3 unit test
+- CP4: viết bộ eval nhóm `data/eval_group.json` (10 case: 5 single turn, 5 multi turn)
+
+### Đóng góp cụ thể
+
+- `hn_search`: tìm story trên Hacker News qua Algolia API, không cần key; args `query`, `sort_by`, `timeframe`, `limit`; input xấu được chuẩn hóa, lỗi trả error dict
+- `github_search`: tìm repo qua GitHub Search API, không bắt buộc key (tự dùng `GITHUB_TOKEN` nếu có); args `query`, `sort_by`, `language`, `timeframe`, `limit`
+- 6 unit test offline (happy path, input xấu từ model, nhánh lỗi HTTP/timeout) cho 2 tool
+- 10 case eval nhóm phủ `hn_search`, `weather`, `redact` (route tool mới, args quy ước, `no_tool`, hỏi lại khi thiếu thông tin, ràng buộc nhiều lượt); sau đó Vũ Thành đổi 2 case sang `github_search` ở v6
+
+### Bằng chứng
+
+- Commit: `f385305` (hn_search), `7185995` (eval group), `3561737` (github_search)
+- `pytest` full: 94 passed, 0 failed, 14 skipped (stub tool starter); contract test xanh
+- Báo cáo cá nhân: `report/team/2A202603934_NguyenThanhNam.md`
 
 ## DoVietAnh-2A202603973
 
